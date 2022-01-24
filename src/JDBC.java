@@ -18,10 +18,14 @@ public class JDBC {
 
         //连接数据库
         try {
-            String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false";
+            //连接基本信息
+            String url = "jdbc:mysql://localhost:3306/";
+            String database = "test";
+            String urlParameter = "?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false";
             String username = "root";
             String password = "123456";
-            conn = DriverManager.getConnection(url, username, password);
+            //数据库连接
+            conn = DriverManager.getConnection(url + database + urlParameter, username, password);
             System.out.println("数据库连接成功");
         } catch (SQLException e) {
             e.printStackTrace();
