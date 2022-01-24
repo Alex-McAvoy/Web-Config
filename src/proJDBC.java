@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,6 +54,7 @@ public class proJDBC {
     static ResultSet rs = null;
 
     //连接数据库
+    @Test
     public void getConn() {
         //加载数据库驱动
         try {
@@ -102,6 +105,7 @@ public class proJDBC {
     }
 
     CRUD crud = new CRUD(); //内部类
+
     //测试数据库
     public void test() {
 //        crud.create();
@@ -110,6 +114,7 @@ public class proJDBC {
 //        crud.retrieve();
         crud.queryAgeByName("alex");
     }
+
     //内部类
     public class CRUD {
         // 插入数据
