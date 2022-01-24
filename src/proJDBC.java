@@ -9,9 +9,15 @@ public class proJDBC {
     // 数据库驱动
     @SuppressWarnings("unused")
     private static String driver = "";
-    // 数据库地址
+    // 数据库url
     @SuppressWarnings("unused")
     private static String url = "";
+    // 数据库名称
+    @SuppressWarnings("unused")
+    private static String database = "";
+    // 数据库url参数
+    @SuppressWarnings("unused")
+    private static String urlParameter = "";
     // 数据库用户名
     @SuppressWarnings("unused")
     private static String username = "";
@@ -29,6 +35,8 @@ public class proJDBC {
             //获取数据库信息
             driver = file.getProperty("datasource.connection.driver");
             url = file.getProperty("datasource.connection.url");
+            database = file.getProperty("datasource.connection.database");
+            urlParameter = file.getProperty("datasource.connection.urlParameter");
             username = file.getProperty("datasource.connection.username");
             password = file.getProperty("datasource.connection.password");
         } catch (FileNotFoundException e) {
@@ -54,7 +62,7 @@ public class proJDBC {
         }
         //连接数据库
         try {
-            conn = DriverManager.getConnection(url, username, password);
+            conn = DriverManager.getConnection(url + database + urlParameter, username, password);
             System.out.println("数据库连接成功");
         } catch (SQLException e) {
             e.printStackTrace();
