@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Spring 配置文件 -->
+
+    <!-- 扫描控制器外的所有 -->
+    <context:component-scan base-package="com.crud">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 数据源 -->
+    <context:property-placeholder location="classpath:db.properties" />
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${datasource.connection.driver}"></property>
+        <property name="jdbcUrl" value="${datasource.connection.url}
+                                        + ${datasource.connection.database}
+                                        + ${datasource.connection.urlParameter}"></property>
+        <property name="user" value="${datasource.connection.username}"></property>
+        <property name="password" value="${datasource.connection.password}"></property>
+        <property name="minPoolSize" value="${datasource.connection.minPoolSize}"></property>
+        <property name="maxPoolSize" value="${datasource.connection.maxPoolSize}"></property>
+        <property name="maxIdleTime" value="${datasource.connection.maxIdleTime}"></property>
+    </bean>
+
+    <!-- 整合mybatis -->
+    <!-- 创建出SqlSessionFactory对象 -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据源 -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- 指定全局配置文件位置 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!-- 指定mapper文件位置 -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+    <!-- 扫描所有mapper接口的实现，以自动注入 -->
+    <mybatis-spring:scan base-package="com.crud.dao"></mybatis-spring:scan>
+    <!-- 可执行批量的 sqlSession -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
+        <constructor-arg name="executorType" value="BATCH"></constructor-arg>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 配置支持注解的事务 -->
+    <aop:config>
+        <!-- 切入点表达式 -->
+        <aop:pointcut id="txPoint" expression="execution(public * com.crud.service..*(..))" />
+        <!-- 配置事务增强 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+    </aop:config>
+    <!-- 配置事务增强，事务如何切入 -->
+    <tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">
+        <tx:attributes>
+            <!-- 所有方法都是事务方法 -->
+            <tx:method name="*"/>
+            <!-- 以get开始的所有方法 -->
+            <tx:method name="get*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+</beans>
