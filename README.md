@@ -8,5 +8,6 @@
 4. Spring4：练习使用 Spring4 框架，含相关配置文件
 5. SSH：使用 Struts2+Hibernate+Spring4 整合框架编写的员工信息管理的 demo，前后端数据交互采用 Ajax
 6. SpringMVC：使用 SpringMVC 框架实现页面跳转，含 SpringMVC 配置文件 springmvc.xml
-7. JPA：使用 JPA 实现数据库持久化，含相关配置文件 persistence.xml，以及 ehcache 缓存配置文件
+7. JPA：使用 JPA（Hibernate） 实现数据库持久化，含相关配置文件 persistence.xml，以及 ehcache 缓存配置文件
 8. SpringData：使用 SpringData 框架实现数据库持久化，含相关配置文件
+9. SSSP：使用 SpringMvc+Spring+SpringData+JPA（Hibernate） 整合框架编写的员工信息管理的 demo，前后端数据交互采用 Ajax
