@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 指定 Spring 容器扫描的包 -->
+    <!--
+         参数说明:
+         - base-package: 扫描的基类包
+         - resource-pattern: 扫描基类包下特定的类,使其他类不被扫描到
+           例: resource-pattern="service/*.class"
+         - use-default-filters: 开启/关闭默认扫描过滤器,默认为 true
+         子结点:
+         - <context:include-filter type="annotation" expression="xxx">: 要包含的目标类
+           需要在父结点 <context:component-scan> 中设置 use-default-filters="false"
+         - <context:exclude-filter type="annotation" expression="xxx">: 要排除的目标类
+
+    -->
+    <context:component-scan base-package="com.annotation"></context:component-scan>
+</beans>

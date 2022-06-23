@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 配置 Bean
+         参数说明:
+          - id: Bean 的名称,唯一
+          - class: Bean 的全类名,通过反射的方式在 IOC 容器中创建 Bean,要求 Bean 中必须有无参构造器
+          - parent: 指定继承 Bean 的配置
+          - abstract: 设为 true 时,Bean 无法被实例化,只能用来继承 Bean 的配置
+          - depends-on: 设置依赖的 Bean,前置依赖的 Bean 会在本 Bean 在实例化前实例化
+          - scope: Bean 的作用域
+            - singleton: 默认值,容器初始化时创建 Bean 实例,在整个容器生命周期内仅创建这一个 Bean
+            - prototype: 原型的,容器初始化时不创建 Bean 实例,在每次请求时都创建一个新的 Bean 并返回
+          - init-method: 设置 Bean 的初始化方法
+          - destroy-method: 设置 Bean 的销毁方法
+    -->
+
+    <!-- 配置 Bean 后置处理器 -->
+    <!--
+        不需要配置 id 属性,容器会识别到他是一个 Bean 后置处理器,并调用其方法
+        <bean class="com.atguigu.spring.ref.MyBeanPostProcessor"></bean>
+        要求:
+          1. 实现 BeanPostProcessor 接口
+          2. 提供 Object postProcessBeforeInitialization(Object bean, String beanName) 方法,该方法在 init-method 前被调用
+          3. 提供 Object postProcessAfterInitialization(Object bean, String beanName) 方法,该方法在 destroy-method 后被调用
+          其中, bean 为 Bean 实例本身, beanName 为 IOC 容器配置的 Bean 的名字
+    -->
+
+
+
+    <!--
+        构造器注入 <constructor-arg>: 根据构造函数顺序,依次填入注入的属性值
+         - value: 注入值
+         - index: 参数索引
+    -->
+    <bean id="hello" class="com.beans.Hello">
+        <constructor-arg value="World!"></constructor-arg>
+    </bean>
+
+    <!-- 构造器注入可以指定参数位置和参数类型,以区分重载构造器
+         若字面值包含特殊字符,可使用 <![CDATA[xxx]]> 包裹
+    -->
+    <bean id="car" class="com.beans.Car">
+        <constructor-arg type="int">
+            <value>1</value>
+        </constructor-arg>
+        <constructor-arg type="java.lang.String">
+            <value><![CDATA[^BaoMa^]]></value>
+        </constructor-arg>
+        <constructor-arg value="2.8" index="2"></constructor-arg>
+    </bean>
+
+    <!-- 属性注入 <property>
+         参数说明:
+          - name: 对应属性的 setXXX 的 XXX 名
+          - value: 注入值
+          - ref: Bean 之间的引用关系
+   -->
+    <bean id="person" class="com.beans.Person">
+        <property name="id" value="1"></property>
+        <property name="name" value="Tom"></property>
+        <property name="age" value="26"></property>
+        <property name="car" ref="car"></property>
+    </bean>
+
+    <!-- 内部 Bean,不能被外部引用-->
+    <bean id="person1" class="com.beans.Person">
+        <property name="id" value="2"></property>
+        <property name="name" value="Alex"></property>
+        <property name="age" value="23"></property>
+        <property name="car">
+            <bean class="com.beans.Car">
+                <constructor-arg value="2"></constructor-arg>
+                <constructor-arg value="BenChi"></constructor-arg>
+                <constructor-arg value="4.5"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 使用 <list>,<map> 元素来装配 List 集合属性 -->
+    <bean id="worker" class="com.beans.Worker">
+        <property name="id" value="1"></property>
+        <property name="name" value="Jack"></property>
+        <property name="listCars">
+            <list>
+                <ref bean="car"></ref>
+                <bean class="com.beans.Car">
+                    <constructor-arg value="2"></constructor-arg>
+                    <constructor-arg value="BenChi"></constructor-arg>
+                    <constructor-arg value="4.5"></constructor-arg>
+                </bean>
+            </list>
+        </property>
+        <property name="mapCars">
+            <map>
+                <entry key="AA" value-ref="car"></entry>
+                <entry key="BB">
+                    <bean class="com.beans.Car">
+                        <constructor-arg value="2"></constructor-arg>
+                        <constructor-arg value="BenChi"></constructor-arg>
+                        <constructor-arg value="4.5"></constructor-arg>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- 单例集合类型的 Bean 以供多个 Bean 引用-->
+    <util:list id="listCars1">
+        <ref bean="car"/>
+        <bean class="com.beans.Car">
+            <constructor-arg value="2"></constructor-arg>
+            <constructor-arg value="BenChi"></constructor-arg>
+            <constructor-arg value="4.5"></constructor-arg>
+        </bean>
+    </util:list>
+    <util:map id="mapCars1">
+        <entry key="AA" value-ref="car"></entry>
+        <entry key="BB">
+            <bean class="com.beans.Car">
+                <constructor-arg value="2"></constructor-arg>
+                <constructor-arg value="BenChi"></constructor-arg>
+                <constructor-arg value="4.5"></constructor-arg>
+            </bean>
+        </entry>
+    </util:map>
+    <bean id="worker1" class="com.beans.Worker">
+        <property name="id" value="3"></property>
+        <property name="name" value="Luck"></property>
+        <property name="listCars" ref="listCars1"></property>
+        <property name="mapCars" ref="mapCars1"></property>
+    </bean>
+
+
+</beans>
