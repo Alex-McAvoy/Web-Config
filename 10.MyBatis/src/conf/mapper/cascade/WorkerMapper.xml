@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.dao.cascade.WorkerMapper">
+	<!-- 自定义某JavaBean的封装规则，id用于引用，type自定义规则的java类型 -->
+	<resultMap id="customWorker" type="com.mybatis.bean.cascade.Worker">
+		<!-- id指定主键列的封装规则，column数据表中的列，property为该表所对应JavaBean属性，即type的属性-->
+		<id column="id" property="id"/>
+		<!-- result指定普通列封装规则 -->
+		<!-- 未指定的列会按照数据表的列名自动封装，但该方法不推荐，一般只要写ResultMap，就要写全映射规则 -->
+		<result column="name" property="name"/>
+	</resultMap>
+	<select id="getWorkerById" resultMap="customWorker">
+		SELECT * FROM worker WHERE id = #{id};
+	</select>
+
+	<!-- 级联查询方式一:对象.属性 -->
+	<resultMap id="workerAndDepartment1" type="com.mybatis.bean.cascade.Worker">
+		<id column="id" property="id"/>
+		<result column="worker_name" property="name"/>
+		<result column="department_id" property="department.id"/>
+		<result column="department_name" property="department.name"/>
+	</resultMap>
+	<select id="getWorkerAndDepartmentById1" resultMap="workerAndDepartment1">
+		SELECT w.id id, w.name worker_name, w.department_id department_id,
+			   d.name department_name
+		FROM worker w,department d
+		WHERE w.department_id = d.id AND w.id = #{id};
+	</select>
+
+	<!-- 级联查询方式二：association -->
+	<resultMap id="workerAndDepartment2" type="com.mybatis.bean.cascade.Worker">
+		<id column="id" property="id"/>
+		<result column="worker_name" property="name"/>
+		<!-- association 可指定当前ResultMap的type中的哪个属性是级联的JavaBean对象 -->
+		<association property="department" javaType="com.mybatis.bean.cascade.Department">
+			<id column="department_id" property="id"/>
+			<result column="department_name" property="name"/>
+		</association>
+	</resultMap>
+	<select id="getWorkerAndDepartmentById2" resultMap="workerAndDepartment2">
+		SELECT w.id id, w.name worker_name, w.department_id department_id,
+			   d.name department_name
+		FROM worker w,department d
+		WHERE w.department_id = d.id AND w.id = #{id};
+	</select>
+
+	<!-- 级联查询方法三：association 分步查询 -->
+	<resultMap id="workerAndDepartment3" type="com.mybatis.bean.cascade.Worker">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<!-- 通过 association 中的 select 来表明当前属性是其指定方法查出的结果，column指定数据表的哪一列值传给该方法 -->
+		<association property="department"
+					 select="com.mybatis.dao.cascade.DepartmentMapper.getDepartmentById"
+					 column="department_id"></association>
+	</resultMap>
+	<select id="getWorkerAndDepartmentById3" resultMap="workerAndDepartment3">
+		SELECT * FROM worker WHERE id = #{id};
+	</select>
+
+	<!-- 多表联查方式2 -->
+	<select id="getWorkerByDepartmentId" resultType="com.mybatis.bean.cascade.Worker">
+		SELECT * FROM worker WHERE department_id = #{departmentId};
+	</select>
+
+	<!-- 鉴别器discriminator：MyBatis可通过鉴别器来判断某列值，根据值来改变封装行为 -->
+	<resultMap id="testDiscriminator" type="com.mybatis.bean.cascade.Worker">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<!-- column指定判定的列名，javaType列值对应的Java类型-->
+		<discriminator javaType="string" column="name">
+			<!-- resultType：指定封装结果类型 -->
+			<case value="AA" resultType="com.mybatis.bean.cascade.Worker">
+				<association property="department"
+							 select="com.mybatis.dao.cascade.DepartmentMapper.getDepartmentById"
+							 column="department_id"></association>
+			</case>
+			<case value="BB" resultType="com.mybatis.bean.cascade.Worker">
+				<id column="id" property="id"/>
+				<result column="name" property="name"/>
+			</case>
+		</discriminator>
+	</resultMap>
+	<select id="getWorkerByDepartmentIdForTestDiscriminator" resultMap="testDiscriminator">
+		SELECT * FROM worker WHERE id = #{id};
+	</select>
+</mapper>
