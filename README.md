@@ -11,3 +11,6 @@
 7. JPA：使用 JPA（Hibernate） 实现数据库持久化，含相关配置文件 persistence.xml，以及 ehcache 缓存配置文件
 8. SpringData：使用 SpringData 框架实现数据库持久化，含相关配置文件
 9. SSSP：使用 SpringMvc+Spring+SpringData+JPA（Hibernate） 整合框架编写的员工信息管理的 demo，前后端数据交互采用 Ajax
+10. MyBatis：使用 MyBatis 框架实现数据库持久化，含 MyBatis 配置文件 mybatis-config.xml、mapper 对应的配置文件、ehcache 缓存配置文件、log4j 配置文件
+11. MyBatis Generator：使用 MyBatis Generator 进行逆向工程，含 MyBatis Generator 配置文件 mbg.xml，以及 log4j 配置文件
+12. SSM：
