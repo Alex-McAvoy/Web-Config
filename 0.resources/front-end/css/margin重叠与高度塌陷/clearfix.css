@@ -1,0 +1,6 @@
+.clearfix::before,
+.clearfix::after {
+	content: "";
+	display: table; /*解决margin重叠*/
+	clear: both;	/*解决高度塌陷*/
+}
