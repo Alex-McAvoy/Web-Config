@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 导入资源文件 -->
+    <context:property-placeholder location="classpath:db.properties" />
+    <!-- 配置 C3P0 数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${datasource.connection.username}"></property>
+        <property name="password" value="${datasource.connection.password}"></property>
+        <property name="driverClass" value="${datasource.connection.driver}"></property>
+        <property name="jdbcUrl" value="${datasource.connection.url} +
+                                        ${datasource.connection.database} +
+                                        ${datasource.connection.urlParameter}"></property>
+        <property name="initialPoolSize" value="${datasource.connection.initialPoolSize}"></property>
+        <property name="minPoolSize" value="${datasource.connection.minPoolSize}"></property>
+        <property name="maxPoolSize" value="${datasource.connection.maxPoolSize}"></property>
+    </bean>
+
+    <!-- 配置 SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+        <property name="mappingLocations" value="classpath:com/entities/*.hbm.xml"></property>
+    </bean>
+
+    <!-- 配置 Spring 的声明式事务 -->
+    <!-- Hibernate 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <!-- 事务属性 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="nameIsValid" read-only="true"/> <!-- 录入界面用户名验证ajax -->
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <!-- 事务切入点 -->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+    </aop:config>
+</beans>

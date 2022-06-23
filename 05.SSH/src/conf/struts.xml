@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!-- 定义新的拦截器栈,设置 prepare 拦截器栈的 alwaysInvokePrepare 为 false -->
+        <interceptors>
+            <interceptor-stack name="sshStack">
+                <interceptor-ref name="paramsPrepareParamsStack">
+                    <param name="prepare.alwaysInvokePrepare">false</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <!-- 使用新的拦截器栈 -->
+        <default-interceptor-ref name="sshStack"></default-interceptor-ref>
+
+        <action name="validateName" class="com.actions.ValidateNameAction" method="validateName">
+            <!-- 使用 Ajax-->
+            <result name="ajax-success1" type="stream" >
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
+
+        <action name="emp-*" class="com.actions.EmployeeAction" method="{1}">
+            <!-- 显示信息 -->
+			<result name="list">/WEB-INF/views/emp-list.jsp</result>
+            <!-- 使用 Ajax-->
+			<result name="ajax-success" type="stream" >
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <!-- 显示录入界面 -->
+            <result name="input">/WEB-INF/views/emp-input.jsp</result>
+            <result name="success" type="redirect">/emp-list</result>
+        </action>
+
+    </package>
+
+</struts>

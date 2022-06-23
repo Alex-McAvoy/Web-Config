@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employeeDao" class="com.dao.EmployeeDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="employeeService" class="com.service.EmployeeService">
+        <property name="employeeDao" ref="employeeDao"></property>
+    </bean>
+
+    <bean id="departmentDao" class="com.dao.DepartmentDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="departmentService" class="com.service.DepartmentService">
+        <property name="departmentDao" ref="departmentDao"></property>
+    </bean>
+
+    <bean id="employeeAction" class="com.actions.EmployeeAction" scope="prototype">
+        <property name="employeeService" ref="employeeService"></property>
+        <property name="departmentService" ref="departmentService"></property>
+    </bean>
+
+    <bean id="validateNameAction" class="com.actions.ValidateNameAction" scope="prototype">
+        <property name="employeeService" ref="employeeService"></property>
+    </bean>
+</beans>
