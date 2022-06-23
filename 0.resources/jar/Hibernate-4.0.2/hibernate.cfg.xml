@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--  配置数据库基本信息-->
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306</property>
+        
+        <!-- 配置 Hibernate 基本信息 -->
+        <!-- Hibernate 使用的数据库方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!-- 执行操作时是否在控制台打印 SQL -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 是否对 SQL 进行格式化 -->
+        <property name="hibernate.format_sql">true</property>
+        <!--  指定自动生成数据表的策略 -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 配置 c3p0 数据源 -->
+		<!-- 最大连接数 -->
+        <property name="hibernate.c3p0.max_size">10</property>
+		<!-- 最小连接数 -->
+        <property name="hibernate.c3p0.min_size">5</property>
+		<!-- 连接池耗尽时同一时刻获取多少个连接 -->
+        <property name="c3p0.acquire_increment">2</property>
+		<!-- 连接池多长时间检测一次链接对象是否超时 -->
+        <property name="c3p0.idle_test_period">2000</property>
+		<!-- 连接池中连接对象多久没有使用时销毁 -->
+        <property name="c3p0.timeout">10</property>
+		<!-- 缓存 Statement 对象数量 -->
+        <property name="c3p0.max_statements">10</property>
+		
+		<!-- 设定 JDBC 的 Statement 读取数据的时候每次从数据库中取出的记录条数 -->
+    	<property name="hibernate.jdbc.fetch_size">100</property>
+    	<!-- 设定对数据库进行批量删除，批量更新和批量插入的时候的批次大小 -->
+    	<property name="jdbc.batch_size">30</property>
+
+        <!-- 指定关联的 .hbm.xml 文件(由 IDEA 的 Persistence 自动生成) -->
+      
+
+    </session-factory>
+</hibernate-configuration>
