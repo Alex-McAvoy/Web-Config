@@ -15,4 +15,4 @@
 11. MyBatis Generator：使用 MyBatis Generator 进行逆向工程，含 MyBatis Generator 配置文件 mbg.xml，以及 log4j 配置文件
 12. MyBatis Common Mapper：使用 MyBatis 的通用 Mapper 与 JPA 来实现数据库持久化，含相关配置文件
 13. MyBatis Common Mapper Generator：MyBatis 通用 Mapper 支持下的逆向工程，含 MyBatis Generator 配置文件 mbg.xml
-14. SSM：使用 Spring+Spring+MyBatis 整合框架编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
+14. SSM：使用 Spring+SpringMVC+MyBatis 整合框架编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
