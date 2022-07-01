@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.dao.dynamic.PersonMapper">
+
+    <!-- 动态SQL，if/where表达式 -->
+    <select id="getPersonByConditionIf" resultType="com.mybatis.bean.dynamic.Person">
+        SELECT * FROM person
+        <!-- where 标签会将前面第一个多出的 AND 或 OR 去掉 -->
+        <where>
+            <!-- if 标签用于从参数中取值进行判断，其中的 test 属性为判断表达式，即OGNL -->
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <!-- 特殊符号应使用转义字符，&为&amp; " 为&quot; -->
+            <if test="name != null &amp;&amp; name != &quot;&quot;">
+                AND name LIKE #{name}
+            </if>
+            <if test="email != null &amp;&amp; email.trim() != &quot;&quot;">
+                AND email = #{email}
+            </if>
+            <if test="gender == 0 or gender == 1">
+                AND gender = #{gender}
+            </if>
+        </where>
+    </select>
+
+    <!-- 动态SQL，if/trim表达式 -->
+    <select id="getPersonByConditionTrim" resultType="com.mybatis.bean.dynamic.Person">
+        SELECT * FROM person
+        <!-- 后面多出的 AND 或 OR，通过trim来截取 -->
+        <!-- 所有的if会进行拼接，trim的prefix可在拼接成的语句前加前缀，suffix加后缀 -->
+        <!-- 此外，prefixOverrides可进行前缀覆盖，即去掉整个字符串前面多余的字符，suffixOverrides可进行后缀覆盖 -->
+        <trim prefix="WHERE" suffixOverrides="AND">
+            <if test="id != null">
+                id = #{id} AND
+            </if>
+            <if test="name != null &amp;&amp; name != &quot;&quot;">
+                name LIKE #{name} AND
+            </if>
+            <if test="email != null &amp;&amp; email.trim() != &quot;&quot;">
+                email = #{email} AND
+            </if>
+            <if test="gender == 0 or gender == 1">
+                gender = #{gender}
+            </if>
+        </trim>
+    </select>
+
+    <!-- 动态SQL,choose表达式，类似switch-case -->
+    <select id="getPersonByConditionChoose" resultType="com.mybatis.bean.dynamic.Person">
+        SELECT * FROM person
+        <where>
+            <choose>
+                <when test="id!=null">id = #{id}</when>
+                <when test="name!=null">name LIKE #{name}</when>
+                <when test="email!=null">email = #{email}</when>
+                <otherwise>gender = #{gender}</otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <!-- 动态SQL，if/set 修改 -->
+    <update id="updateWorkerBySet">
+        UPDATE person
+        <set>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="email!=null">
+                email = #{email},
+            </if>
+            <if test="gender!=null">
+                gender = #{gender}
+            </if>
+        </set>
+        WHERE id = #{id};
+    </update>
+
+    <!-- 动态SQL，foreach遍历 -->
+    <!-- collection要遍历的集合，item当前遍历出的元素赋值的变量，sparator元素间的分隔符，open/close遍历出所有结果拼接开始/结束的字符 -->
+    <!-- 遍历List时，index是索引，item是当前值；遍历map时，index是map的key，item是map的值 -->
+    <select id="getPersonByConditionForeach" resultType="com.mybatis.bean.dynamic.Person">
+        SELECT * FROM person WHERE id IN
+        <foreach collection="ids" item="item_id" separator="," open="(" close=")">
+            #{item_id}
+        </foreach>
+    </select>
+
+</mapper>
