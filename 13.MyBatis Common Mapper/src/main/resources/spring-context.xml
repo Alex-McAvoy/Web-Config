@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- 配置数据源 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${datasource.connection.driver}"></property>
+		<property name="jdbcUrl" value="${datasource.connection.url}
+                                        + ${datasource.connection.database}
+                                        + ${datasource.connection.urlParameter}"></property>
+		<property name="user" value="${datasource.connection.username}"></property>
+		<property name="password" value="${datasource.connection.password}"></property>
+		<property name="minPoolSize" value="${datasource.connection.minPoolSize}"></property>
+		<property name="maxPoolSize" value="${datasource.connection.maxPoolSize}"></property>
+		<property name="maxIdleTime" value="${datasource.connection.maxIdleTime}"></property>
+	</bean>
+
+	<!-- 整合MyBatis -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- 整合通用Mapper所需要做的配置修改 -->
+	<!-- 原始全类名：org.mybatis.spring.mapper.MapperScannerConfigurer -->
+	<!-- 通用Mapper使用：tk.mybatis.spring.mapper.MapperScannerConfigurer -->
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 通用 Mapper 所提供的 Mapper -->
+		<property name="basePackage" value="com.mapper.mappers"/>
+	</bean>
+
+	<!-- 配置Service自动扫描的包 -->
+	<context:component-scan base-package="com.mapper.services"/>
+
+	<!-- 配置事务管理器 -->
+	<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!-- 配置支持注解的事务 -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* *..*Service.*(..))"/>
+	</aop:config>
+
+	<!-- 配置事务增强，事务如何切入 -->
+	<tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="save*" rollback-for="java.lang.Exception" propagation="REQUIRES_NEW"/>
+			<tx:method name="remove*" rollback-for="java.lang.Exception" propagation="REQUIRES_NEW"/>
+			<tx:method name="update*" rollback-for="java.lang.Exception" propagation="REQUIRES_NEW"/>
+		</tx:attributes>
+	</tx:advice>
+</beans>
