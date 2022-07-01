@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple"
+             defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 配置通用 Mapper 的 MBG 插件相关信息 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <!-- 生成时，不生成注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 配置连接数据库的基本信息 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/common_mapper_test"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- 配置 Java 实体类存放位置 -->
+        <javaModelGenerator targetPackage="com.mbg.beans" targetProject="./src/main/java"/>
+
+        <!-- 配置 xxxMapper.xml 存放位置 -->
+        <sqlMapGenerator targetPackage="mappers" targetProject="./src/main/resources"/>
+
+        <!-- 配置 xxxMapper.java 存放位置 -->
+        <javaClientGenerator targetPackage="com.mbg.mappers" targetProject="./src/main/java" type="XMLMAPPER"/>
+
+        <!-- 根据数据库表生成 Java 文件的相关规则 -->
+        <!-- tableName="%" 表示数据库中所有表都参与逆向工程，此时使用默认规则(例：tab_emp->TabEmp) -->
+        <!-- 不符合默认规则时需要使用 tableName 和 domainObjectName 两个属性明确指定 -->
+        <table tableName="employee" domainObjectName="Employee">
+            <!-- 配置主键生成策略 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
