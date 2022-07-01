@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+		<!-- 打印sql日志 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+        <!-- 是否开启数据库驼峰命名规则映射 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 开启懒加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 开启二级缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+		<!-- 本地缓存作用域 -->
+		<!-- 取值：
+			SESSION：一级缓存，当前会话的所有数据保存在会话缓存中
+			STATEMENT：设置该值后，可以禁用一级缓存
+		-->
+		<setting name="localCacheScope" value="SESSION"/>
+    </settings>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+	</plugins>
+</configuration>
