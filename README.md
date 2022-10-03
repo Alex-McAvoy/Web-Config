@@ -17,4 +17,4 @@
 13. MyBatis Common Mapper：使用 MyBatis 的通用 Mapper 与 JPA 来实现数据库持久化，含相关配置文件
 14. MyBatis Common Mapper Generator：MyBatis 通用 Mapper 支持下的逆向工程，含 MyBatis Generator 配置文件 mbg.xml
 15. SSM：使用 Spring+SpringMVC+MyBatis 整合框架编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
-
+16. Redis: 使用 Jedis 测试 Redis 连接、常用 API、事务控制、主从复制、连接池
