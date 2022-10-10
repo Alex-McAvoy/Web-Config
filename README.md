@@ -18,4 +18,5 @@
 14. MyBatis Common Mapper Generator：MyBatis 通用 Mapper 支持下的逆向工程，含 MyBatis Generator 配置文件 mbg.xml
 15. SSM：使用 Spring+SpringMVC+MyBatis 整合框架编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
 16. Redis: 使用 Jedis 测试 Redis 连接、常用 API、事务控制、主从复制、连接池
-17. RabbitMQ：RabbitMQ 的生产-消费模型、轮询工作队列、消息应答、持久化、不公平分发与预取值、发布确认、交换机、死信、延迟队列
+17. RabbitMQ：RabbitMQ 的生产消费模型、轮询工作队列、消息应答、持久化、不公平分发与预取值、发布确认、交换机、死信
+18. SpringBoot-RabbitMQ：SpringBoot 整合 Rabbit，包含基于TTL的延迟队列、基于rabbitmq_delayed_message_exchange插件的延迟队列、
