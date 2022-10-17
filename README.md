@@ -21,3 +21,4 @@
 17. SpringBoot: 使用 SpringBoot+MyBatis+Redis 编写的员工信息管理的 demo，前端采用 thymeleaf
 18. RabbitMQ：学习使用 RabbitMQ，包括：生产消费模型、轮询工作队列、消息应答、持久化、不公平分发与预取值、发布确认、交换机、死信
 19. SpringBoot-RabbitMQ：学习使用 SpringBoot 整合 Rabbit，包括：基于TTL的延迟队列、基于rabbitmq_delayed_message_exchange插件的延迟队列、高级发布确认
+20. Elasticsearch：学习使用 Elasticsearch，包括：索引添加/删除/搜索、文档添加/删除/修改/获取、文档批量添加/删除、文档高级搜索
