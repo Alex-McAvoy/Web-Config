@@ -1,0 +1,133 @@
+spring:
+  profiles:
+    active: prod # 激活开发环境
+  thymeleaf:
+    cache: false # 禁用模板引擎缓存
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/public/ # 修改静态资源访问路径
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true # POST 伪装 PUT 和 DELETE
+  # 数据源
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springboot_test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # Druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  # Redis
+  redis:
+    host: localhost
+    port: 6379
+  # 邮件发送
+  mail:
+    username:  # 发送邮箱
+    password:  # 邮箱密码（QQ邮箱为授权码）
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true  # 开启SSL
+
+server:
+  error:
+    include-exception: true # 获取异常对象
+    include-message: always # 获取异常消息
+
+#logging:
+#  level: # 日志级别，key为包名，value为具体的级别
+#    com: error
+#    org.springframework: debug
+#  file: # 日志file与path，两者冲突，均不指定时，默认控制台输出
+#    name: C:/Users/Alex/Desktop/test.log # 输出到xxx.log文件
+#    path: C:/Users/Alex/Desktop # 输出到指定目录的spring.log文件
+#  pattern:
+#    console: "%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n" # 控制台输出的日志格式
+#    file: "%d{yyyy-MM-dd} === [%thread] === %-5level === %logger{50} ==== %msg%n" # 日志输出的格式
+
+#debug: true # 控制台打印自动配置报告
+
+mybatis:
+  # 全局配置文件
+  #  config-location: classpath:mybatis/mybatis-config.xml
+  # xxxMapper.xml 文件
+  mapper-locations: classpath:mybatis/mapper/*
+  # MyBatis 配置，可替代全局配置文件，但两者只能保留一个
+  configuration:
+    # 开启驼峰映射
+    map-underscore-to-camel-case: true
+    # 执行打印SQL日志
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 监控审计
+management:
+  endpoints: # 要暴露的端点
+    web:
+      base-path: /actuator  # Endpoint 基础路径，默认是 /actuator
+      exposure:
+        # exclude: '*'   exclude 的优先级高于 include，
+        include: ["auditevents","health","info","beans","scheduledtasks"]
+
+  endpoint: # 开启暴露的端点
+    auditevents: # 显示应用暴露的审计事件
+      enabled: true
+      cache:
+        time-to-live: 10s # 配置端点缓存响应的时间
+    info: # 应用基本信息
+      enabled: true
+    health: # 健康信息
+      enabled: true
+      show-details: always # 显示详细信息
+    beans: # Bean 的完整列表
+      enabled: true
+    scheduledtasks: #计划任务
+      enabled: true
+
+---
+# 开发环境
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot # 项目加载路径
+
+---
+# 测试环境
+spring:
+  config:
+    activate:
+      on-profile: test
+
+server:
+  port: 8081
+  servlet:
+    context-path: /springboot-test # 项目加载路径
+
+
+
+
