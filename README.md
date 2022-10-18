@@ -18,7 +18,7 @@
 14. MyBatis Common Mapper Generator：MyBatis 通用 Mapper 支持下的逆向工程，含 MyBatis Generator 配置文件 mbg.xml
 15. SSM：使用 Spring+SpringMVC+MyBatis 整合编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
 16. Redis: 学习使用 Redis，并使用 Jedis 进行测试，包括：Redis 连接、常用 API、事务控制、主从复制、连接池
-17. SpringBoot: 使用 SpringBoot+MyBatis+Redis 编写的员工信息管理的 demo，前端采用 thymeleaf
+17. SpringBoot: 使用 SpringBoot+MyBatis+Redis 编写的员工信息管理的 demo，前端采用 thymeleaf，包括基本 CRUD、Redis 缓存、自定义异常、日志管理、计划任务、监控审计
 18. RabbitMQ：学习使用 RabbitMQ，包括：生产消费模型、轮询工作队列、消息应答、持久化、不公平分发与预取值、发布确认、交换机、死信
 19. SpringBoot-RabbitMQ：学习使用 SpringBoot 整合 Rabbit，包括：基于TTL的延迟队列、基于rabbitmq_delayed_message_exchange插件的延迟队列、高级发布确认
 20. Elasticsearch：学习使用 Elasticsearch，包括：索引基本操作、文档基本操作、文档高级搜索
