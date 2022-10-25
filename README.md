@@ -12,16 +12,24 @@
 8. JPA：学习使用 JPA（Hibernate），含相关配置文件及 ehcache 缓存配置文件
 9. SpringData：学习使用 SpringData，含相关配置文件
 10. SSSP：使用 SpringMvc+Spring+SpringData+JPA（Hibernate） 整合编写的员工信息管理的 demo，前后端数据交互采用 Ajax
-11. MyBatis：学习使用 MyBatis，含相关配置文件
-12. MyBatis Generator：学习使用 MyBatis Generator 进行逆向工程，含 MyBatis Generator 配置文件 mbg.xml
-13. MyBatis Common Mapper：学习使用 MyBatis 的通用 Mapper，含相关配置文件
-14. MyBatis Common Mapper Generator：学习使用 MyBatis 通用 Mapper 支持下的逆向工程，含 MyBatis Generator 配置文件 mbg.xml
-15. MyBatis Plus：学习使用 MyBatis Plus，包括：通用 CRUD、条件构造器 EntityWrapper、活动记录 ActiveRecord、扩展插件（分页、执行分析、性能分析、乐观锁）
-16. MyBatis Plus Generator：学习使用 MyBatis Plus Generator
-17. SSM：使用 Spring+SpringMVC+MyBatis 整合编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
-18. Redis：学习使用 Redis，并使用 Jedis 进行测试，包括：Redis 连接、常用 API、事务控制、主从复制、连接池
-19. SpringBoot：使用 SpringBoot+MyBatis+Redis 编写的员工信息管理的 demo，前端采用 thymeleaf，包括基本 CRUD、Redis 缓存、自定义异常、日志管理、计划任务、监控审计
-20. RabbitMQ：学习使用 RabbitMQ，包括：生产消费模型、轮询工作队列、消息应答、持久化、不公平分发与预取值、发布确认、交换机、死信
-21. SpringBoot-RabbitMQ：学习使用 SpringBoot 整合 Rabbit，包括：基于TTL的延迟队列、基于rabbitmq_delayed_message_exchange插件的延迟队列、高级发布确认
-22. Elasticsearch：学习使用 Elasticsearch，包括：索引基本操作、文档基本操作、文档高级搜索
-23. SpringBoot-Elasticsearch：学习使用 SpringBoot 整合 Elasticsearch，包括：索引基本操作、文档基本操作、文档高级搜索
+11. MyBatis
+    1. Basic：MyBatis 的基本使用，包括：基本使用、级联查询、动态 SQL、二级缓存、分页查询
+    2. Generator：MyBatis Generator 逆向工程
+12. MyBatis Common Mapper
+    1. Basic：MyBatis 通用 Mapper 的基本使用
+    2. Generator：MyBatis Common Mapper Generator 逆向工程
+13. MyBatis Plus
+    1. Basic：MyBatis Plus 的基本使用，包括：通用 CRUD、条件构造器 EntityWrapper、活动记录 ActiveRecord、扩展插件（分页、执行分析、性能分析、乐观锁）
+    2. Generator：MyBatis Plus Generator 逆向工程
+14. SSM：使用 Spring+SpringMVC+MyBatis 整合编写的员工信息管理的 demo，前端采用 Bootstrap，前后端数据交互采用 Ajax
+15. SpringBoot：SpringBoot+MyBatis 编写的员工信息管理的 demo，前端采用 thymeleaf，包括基本 CRUD、自定义异常、日志管理、计划任务、监控审计
+16. Redis：
+    1. Basic：Redis 的基本使用，包括：Redis 连接、常用 API、事务控制、主从复制、连接池
+    2. SpringBoot：SpringBoot 整合 Redis，包括：运行结果缓存、缓存清除、缓存更新
+17. RabbitMQ：学习使用 RabbitMQ
+    1. Basic：学习 RabbitMQ 的基础使用，包括：生产消费模型、轮询工作队列、消息应答、持久化、不公平分发与预取值、发布确认、交换机、死信
+    2. SpringBoot：学习使用 SpringBoot 整合 Rabbit，包括：基于 TTL 的延迟队列、基于 rabbitmq_delayed_message_exchange 插件的延迟队列、高级发布确认
+18. Elasticsearch：学习使用 Elasticsearch
+    1. Basic：学习 Elasticseach 的基础使用，包括：索引基本操作、文档基本操作、文档高级搜索
+    2. SpringBoot：学习使用 SpringBoot 整合 Elasticsearch，包括：索引基本操作、文档基本操作、文档高级搜索
+
