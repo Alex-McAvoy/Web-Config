@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration debug="true">
+
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %d{MM-dd HH:mm:ss,SSS} %m  (%F:%L) \n"/>
+        </layout>
+    </appender>
+    <logger name="java.sql">
+<!--        <level value="debug"/>-->
+        <level value="error"/>
+    </logger>
+    <logger name="org.apache.ibatis">
+<!--        <level value="info"/>-->
+        <level value="error"/>
+    </logger>
+    <root>
+        <appender-ref ref="STDOUT"/>
+<!--        <level value="debug"/>-->
+        <level value="error"/>
+    </root>
+</log4j:configuration>
