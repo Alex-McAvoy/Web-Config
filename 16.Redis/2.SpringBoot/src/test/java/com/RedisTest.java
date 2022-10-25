@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @Description: Redis 测试
+ * @Description: Redis 基本使用测试
  * @Author: Alex McAvoy
  * @Date: 2022/10/6 18:10
  * @Version: 1.0

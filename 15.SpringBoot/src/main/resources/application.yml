@@ -35,10 +35,7 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-  # Redis
-  redis:
-    host: localhost
-    port: 6379
+
   # 邮件发送
   mail:
     username:  # 发送邮箱
