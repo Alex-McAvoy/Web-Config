@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+登录成功
+<br>
+<span th:text="'CSRF 防护启用,token 为: '+${_csrf.token}"></span>
+<br>
+<a href="/logout">退出</a>
+<br>
+<a href="/test/secured">@Secured</a>
+<br>
+<a href="/test/preAuthorize">@PreAuthorize</a>
+<br>
+<a href="/test/postAuthorize">@PostAuthorize</a>
+<br>
+<a href="/test/postFilter">@PostFilter</a>
+</body>
+</html>
