@@ -6,10 +6,10 @@ import com.rabbitmq.client.DeliverCallback;
 import com.utils.RabbitMQUtils;
 
 /**
- * @Description: 工作线程01，相当于消费者
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 16:55
- * @Version: 1.0
+ * 工作线程01，相当于消费者
+ * @author Alex McAvoy
+ * @date 2022/10/8 16:55
+ * @version 1.0
  **/
 public class Worker01 {
 

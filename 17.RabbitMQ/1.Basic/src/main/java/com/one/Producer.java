@@ -5,10 +5,10 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 /**
- * @Description: 生产者，发消息
- * @Author: Alex McAvoy
- * @Date: 2022/10/7 22:18
- * @Version: 1.0
+ * 生产者，发消息
+ * @author Alex McAvoy
+ * @date 2022/10/7 22:18
+ * @version 1.0
  **/
 public class Producer {
     //队列名称

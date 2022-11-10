@@ -5,19 +5,18 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 /**
- * @Description: RabbitMQ 工具类
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 16:53
- * @Version: 1.0
+ * RabbitMQ 工具类
+ * @author Alex McAvoy
+ * @date 2022/10/8 16:53
+ * @version 1.0
  **/
 public class RabbitMQUtils {
 
     /**
-     * @Description: 创建一个连接的信道 channel
-     * @Param: []
-     * @Return: com.rabbitmq.client.Channel
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/8 16:54
+     * 创建一个连接的信道 channel
+     * @return com.rabbitmq.client.Channel
+     * @author Alex McAvoy
+     * @date 2022/10/8 16:54
      **/
     public static Channel getChannel() throws Exception {
         //创建连接工厂

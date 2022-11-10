@@ -10,10 +10,10 @@ import org.elasticsearch.client.indices.CreateIndexResponse;
 import java.io.IOException;
 
 /**
- * @Description: 增加索引
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 15:57
- * @Version: 1.0
+ *  增加索引
+ * @author Alex McAvoy
+ * @date 2022/10/13 15:57
+ * @version 1.0
  **/
 public class IndexCreate {
     public static void main(String[] args) throws IOException {

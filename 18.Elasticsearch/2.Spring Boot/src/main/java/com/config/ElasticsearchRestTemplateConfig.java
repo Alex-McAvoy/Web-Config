@@ -14,10 +14,10 @@ import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfig
 import org.springframework.http.HttpHeaders;
 
 /**
- * @Description: Elasticsearch 配置类
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 22:15
- * @Version: 1.0
+ *  Elasticsearch 配置类
+ * @author Alex McAvoy
+ * @date 2022/10/13 22:15
+ * @version 1.0
  **/
 @Configuration
 public class ElasticsearchRestTemplateConfig {

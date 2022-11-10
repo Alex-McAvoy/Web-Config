@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Description: 启动类
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:11
- * @Version: 1.0
+ * 启动类
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:11
+ * @version 1.0
  **/
 @SpringBootApplication
 @MapperScan("com.mapper")

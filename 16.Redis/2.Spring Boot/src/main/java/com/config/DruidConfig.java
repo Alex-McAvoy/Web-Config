@@ -10,70 +10,72 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: Druid 数据源配置
- * @Author: Alex McAvoy
- * @Date: 2022/9/29 13:47
- * @Version: 1.0
+ * Druid 数据源配置
+ *
+ * @author Alex McAvoy
+ * @version 1.0
+ * @date 2022/9/29 13:47
  **/
 @Configuration
 public class DruidConfig {
     /**
-     * @Description: 绑定数据源
-     * @Param: []
-     * @Return: javax.sql.DataSource
-     * @Author: Alex McAvoy
-     * @Date: 2022/9/29 13:53
+     * 绑定数据源
+     *
+     * @return javax.sql.DataSource
+     * @author Alex McAvoy
+     * @date 2022/9/29 13:53
      **/
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
-    public DataSource druid(){
+    public DataSource druid() {
         return new DruidDataSource();
     }
-    
+
     /**
-     * @Description: 管理后台的Servlet
-     * @Param: []
-     * @Return: org.springframework.boot.web.servlet.ServletRegistrationBean
-     * @Author: Alex McAvoy
-     * @Date: 2022/9/29 13:49
+     * Druid 后台管理的Servlet
+     *
+     * @return org.springframework.boot.web.servlet.ServletRegistrationBean
+     * @author Alex McAvoy
+     * @date 2022/9/29 13:49
      **/
     @Bean
-    public ServletRegistrationBean statViewServlet(){
-        ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
-        Map<String,String> initParams = new HashMap<>();
+    public ServletRegistrationBean<StatViewServlet> statViewServlet() {
+        ServletRegistrationBean<StatViewServlet> bean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
+        Map<String, String> initParams = new HashMap<>(5);
 
-        initParams.put("loginUsername","admin");
-        initParams.put("loginPassword","123456");
-        initParams.put("allow",""); //默认就是允许所有访问
-//        initParams.put("deny","192.168.15.21"); //拒绝访问
+        initParams.put("loginUsername", "admin");
+        initParams.put("loginPassword", "123456");
+        //默认允许所有访问
+        initParams.put("allow", "");
+        //拒绝访问
+//        initParams.put("deny","192.168.15.21");
 
         bean.setInitParameters(initParams);
         return bean;
     }
 
     /**
-     * @Description: web监控的filter
-     * @Param: []
-     * @Return: org.springframework.boot.web.servlet.FilterRegistrationBean
-     * @Author: Alex McAvoy
-     * @Date: 2022/9/29 13:49
+     * web监控的filter
+     *
+     * @return org.springframework.boot.web.servlet.FilterRegistrationBean<com.alibaba.druid.support.http.WebStatFilter>
+     * @author Alex McAvoy
+     * @date 2022/9/29 13:49
      **/
     @Bean
-    public FilterRegistrationBean webStatFilter(){
-        FilterRegistrationBean bean = new FilterRegistrationBean();
+    public FilterRegistrationBean<WebStatFilter> webStatFilter() {
+        FilterRegistrationBean<WebStatFilter> bean = new FilterRegistrationBean<>();
         bean.setFilter(new WebStatFilter());
 
-        Map<String,String> initParams = new HashMap<>();
-        initParams.put("exclusions","*.js,*.css,/druid/*");
+        Map<String, String> initParams = new HashMap<>(5);
+        initParams.put("exclusions", "*.js,*.css,/druid/*");
 
         bean.setInitParameters(initParams);
-
-        bean.setUrlPatterns(Arrays.asList("/*"));
+        bean.setUrlPatterns(Collections.singletonList("/*"));
 
         return bean;
     }

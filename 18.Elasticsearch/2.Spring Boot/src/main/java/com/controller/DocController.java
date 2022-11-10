@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @Description: 文档操作控制器
- * @Author: Alex McAvoy
- * @Date: 2022/10/14 16:33
- * @Version: 1.0
+ *  文档操作控制器
+ * @author Alex McAvoy
+ * @date 2022/10/14 16:33
+ * @version 1.0
  **/
 @RestController
 @RequestMapping("/doc")
@@ -25,11 +25,10 @@ public class DocController {
     ProductService productService;
 
     /**
-     * @Description: 保存
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:07
+     *  保存
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:07
      **/
     @GetMapping("/save")
     @ResponseBody
@@ -44,11 +43,10 @@ public class DocController {
     }
 
     /**
-     * @Description: 更新
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:07
+     *  更新
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:07
      **/
     @GetMapping("/update")
     @ResponseBody
@@ -59,11 +57,11 @@ public class DocController {
     }
 
     /**
-     * @Description: 查找
-     * @Param: [id]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:07
+     *  查找
+     * @param id id
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:07
      **/
     @GetMapping("/findById/{id}")
     @ResponseBody
@@ -73,11 +71,10 @@ public class DocController {
     }
 
     /**
-     * @Description: 查找所有
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:08
+     *  查找所有
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:08
      **/
     @GetMapping("/findAll")
     @ResponseBody
@@ -91,11 +88,11 @@ public class DocController {
     }
 
     /**
-     * @Description: 根据id删除
-     * @Param: [id]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:13
+     *  根据id删除
+     * @param id id
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:13
      **/
     @GetMapping("/deleteById/{id}")
     @ResponseBody
@@ -105,11 +102,10 @@ public class DocController {
     }
 
     /**
-     * @Description: 批量新增
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:21
+     *  批量新增
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:21
      **/
     @GetMapping("/saveAll")
     @ResponseBody
@@ -129,11 +125,11 @@ public class DocController {
     }
 
     /**
-     * @Description: 分页查询
-     * @Param: [page]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 17:36
+     *  分页查询
+     * @param page 分页数
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 17:36
      **/
     @GetMapping("/findAllByPage/{page}")
     @ResponseBody
@@ -153,11 +149,11 @@ public class DocController {
     }
 
     /**
-     * @Description: 排序查询
-     * @Param: [sortWay]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/15 13:30
+     *  排序查询
+     * @param sortWay 排序方式
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/15 13:30
      **/
     @GetMapping("/findAllBySort/{sortWay}")
     @ResponseBody

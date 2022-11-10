@@ -9,10 +9,10 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 /**
- * @Description: Shiro 登录认证
- * @Author: Alex McAvoy
- * @Date: 2022/10/27 19:40
- * @Version: 1.0
+ * Shiro 登录认证
+ * @author Alex McAvoy
+ * @date 2022/10/27 19:40
+ * @version 1.0
  **/
 public class Authentication {
 
@@ -39,11 +39,11 @@ public class Authentication {
     }
 
     /**
-     * @Description: 测试登录认证
-     * @Param: [currentUser]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/27 19:45
+     * 测试登录认证
+     * @param currentUser 当前用户
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/27 19:45
      **/
     private static void testLoginIn() {
         System.out.println("--------测试用户认证--------");
@@ -72,11 +72,11 @@ public class Authentication {
     }
 
     /**
-     * @Description: 测试 Session
-     * @Param: [currentUser]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/27 19:59
+     * 测试 Session
+     * @param currentUser 当前用户
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/27 19:59
      **/
     private static void testSession() {
         System.out.println("--------测试Session--------");
@@ -92,11 +92,11 @@ public class Authentication {
     }
 
     /**
-     * @Description: 测试用户是否具有角色
-     * @Param: [currentUser]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/27 19:47
+     * 测试用户是否具有角色
+     * @param currentUser 当前用户
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/27 19:47
      **/
     private static void testRole() {
         System.out.println("--------测试用户是否具有角色--------");
@@ -108,11 +108,11 @@ public class Authentication {
     }
 
     /**
-     * @Description: 测试权限与行为
-     * @Param: [currentUser]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/27 19:57
+     * 测试权限与行为
+     * @param currentUser 当前用户
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/27 19:57
      **/
     private static void testPermission() {
         System.out.println("--------测试用户是否具有 permission1 权限进行 test 行为--------");
@@ -131,11 +131,11 @@ public class Authentication {
     }
     
     /**
-     * @Description: 测试登出
-     * @Param: [currentUser]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/27 19:57
+     * 测试登出
+     * @param currentUser 当前用户
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/27 19:57
      **/
     private static void testLoginOut() {
         System.out.println("--------测试用户是否登出--------");

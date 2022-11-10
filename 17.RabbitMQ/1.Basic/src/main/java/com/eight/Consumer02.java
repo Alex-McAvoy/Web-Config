@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: 死信消费者02，死信队列
- * @Author: Alex McAvoy
- * @Date: 2022/10/9 14:58
- * @Version: 1.0
+ * 死信消费者02，死信队列
+ * @author Alex McAvoy
+ * @date 2022/10/9 14:58
+ * @version 1.0
  **/
 public class Consumer02 {
     public static final String DEAD_QUEUE_NAME = "dead_queue";

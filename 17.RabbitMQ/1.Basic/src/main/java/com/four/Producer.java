@@ -7,10 +7,10 @@ import com.utils.RabbitMQUtils;
 import java.util.Scanner;
 
 /**
- * @Description: 消息持久化，生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 19:04
- * @Version: 1.0
+ * 消息持久化，生产者
+ * @author Alex McAvoy
+ * @date 2022/10/8 19:04
+ * @version 1.0
  **/
 public class Producer {
     public static final String DURABLE_QUEUE_NAME = "durable_queue";

@@ -5,10 +5,10 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * @Description: Redis 连接池工具（单例模式实现）
- * @Author: Alex McAvoy
- * @Date: 2022/10/3 14:18
- * @Version: 1.0
+ * Redis 连接池工具（单例模式实现）
+ * @author Alex McAvoy
+ * @date 2022/10/3 14:18
+ * @version 1.0
  **/
 public class JedisPoolUtil {
     private static volatile JedisPool jedisPool = null;
@@ -18,12 +18,16 @@ public class JedisPoolUtil {
 
     public static JedisPool getJedisPoolInstance() {
         if (jedisPool == null) {
-            synchronized (JedisPoolUtil.class) { //同步块
+            //同步块
+            synchronized (JedisPoolUtil.class) {
                 if (jedisPool == null) {
                     JedisPoolConfig poolConfig = new JedisPoolConfig();
-                    poolConfig.setMaxTotal(1000); //设置最大连接数
-                    poolConfig.setMaxIdle(32); // 设置空间连接
-//                    poolConfig.setMaxWait(1000000); // 设置最大阻塞时间
+                    //设置最大连接数
+                    poolConfig.setMaxTotal(1000);
+                    //设置空间连接
+                    poolConfig.setMaxIdle(32);
+                    //设置最大阻塞时间
+//                    poolConfig.setMaxWait(1000000);
                     poolConfig.setTestOnBorrow(true);
 
                     jedisPool = new JedisPool(poolConfig, "127.0.0.1", 6379);

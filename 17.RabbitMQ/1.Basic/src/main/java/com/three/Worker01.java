@@ -7,10 +7,10 @@ import com.utils.RabbitMQUtils;
 import com.utils.SleepUtils;
 
 /**
- * @Description: 消息手动应答的工作线程01，消息不丢失、出错时放回队列重新消费
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 17:27
- * @Version: 1.0
+ * 消息手动应答的工作线程01，消息不丢失、出错时放回队列重新消费
+ * @author Alex McAvoy
+ * @date 2022/10/8 17:27
+ * @version 1.0
  **/
 public class Worker01 {
     public static final String TASK_QUEUE_NAME = "ack_queue";
@@ -38,7 +38,8 @@ public class Worker01 {
         };
 
 
-        boolean autoAck = false; // 手动应答
+		// 手动应答
+        boolean autoAck = false; 
         channel.basicConsume(TASK_QUEUE_NAME, autoAck, deliverCallback, cancelCallback);
     }
 }

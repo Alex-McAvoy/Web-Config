@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: 基于rabbitmq_delayed_message_exchange插件的延迟队列配置类
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 11:29
- * @Version: 1.0
+ * 基于rabbitmq_delayed_message_exchange插件的延迟队列配置类
+ * @author Alex McAvoy
+ * @date 2022/10/10 11:29
+ * @version 1.0
  **/
 @Configuration
 public class BasePluginConfig {
@@ -24,11 +24,10 @@ public class BasePluginConfig {
     public static final String DELAYED_ROUTING_KEY = "delayed.routingKey";
 
     /**
-     * @Description: 声明时延队列
-     * @Param: []
-     * @Return: org.springframework.amqp.core.Queue
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/10 13:56
+     * 声明时延队列
+     * @return org.springframework.amqp.core.Queue
+     * @author Alex McAvoy
+     * @date 2022/10/10 13:56
      **/
     @Bean
     public Queue delayedQueue() {
@@ -36,11 +35,10 @@ public class BasePluginConfig {
     }
 
     /**
-     * @Description: 自定义插件中新增的x-delayed-message类型交换机
-     * @Param: []
-     * @Return: org.springframework.amqp.core.CustomExchange
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/10 13:56
+     * 自定义插件中新增的x-delayed-message类型交换机
+     * @return org.springframework.amqp.core.CustomExchange
+     * @author Alex McAvoy
+     * @date 2022/10/10 13:56
      **/
     @Bean
     public CustomExchange delayedExchange() {
@@ -50,11 +48,12 @@ public class BasePluginConfig {
     }
 
     /**
-     * @Description: 绑定时延队列与时延交换机
-     * @Param: [queue, delayedExchange]
-     * @Return: org.springframework.amqp.core.Binding
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/10 13:56
+     * 绑定时延队列与时延交换机
+     * @param queue 时延队列
+	 * @param delayedExchange 时延交换机
+     * @return org.springframework.amqp.core.Binding
+     * @author Alex McAvoy
+     * @date 2022/10/10 13:56
      **/
     @Bean
     public Binding bindingDelayedQueue(@Qualifier("delayedQueue") Queue queue,

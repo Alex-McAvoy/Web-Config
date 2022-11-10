@@ -1,4 +1,7 @@
 package com.bean;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户实体类
@@ -7,10 +10,6 @@ package com.bean;
  * @version 1.0
  * @date 2022/11/3 20:36
  **/
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

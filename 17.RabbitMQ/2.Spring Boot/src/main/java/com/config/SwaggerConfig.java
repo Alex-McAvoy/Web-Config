@@ -10,10 +10,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @Description: Swagger 生成文档配置类
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 11:24
- * @Version: 1.0
+ * Swagger 生成文档配置类
+ * @author Alex McAvoy
+ * @date 2022/10/10 11:24
+ * @version 1.0
  **/
 @Configuration
 @EnableSwagger2

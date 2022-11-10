@@ -1,10 +1,10 @@
 package com.bean;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 16:55
- * @Version: 1.0
+ *  用户类
+ * @author Alex McAvoy
+ * @date 2022/10/13 16:55
+ * @version 1.0
  **/
 public class User {
     private String name;

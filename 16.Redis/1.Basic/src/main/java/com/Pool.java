@@ -5,10 +5,10 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 /**
- * @Description: Redis 连接池
- * @Author: Alex McAvoy
- * @Date: 2022/10/3 14:28
- * @Version: 1.0
+ * Redis 连接池
+ * @author Alex McAvoy
+ * @date 2022/10/3 14:18
+ * @version 1.0
  **/
 public class Pool {
     public static void main(String[] args) {

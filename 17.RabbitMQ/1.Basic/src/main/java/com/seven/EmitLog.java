@@ -7,10 +7,10 @@ import com.utils.RabbitMQUtils;
 import java.util.Scanner;
 
 /**
- * @Description: 交换机，生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 22:07
- * @Version: 1.0
+ * 交换机，生产者
+ * @author Alex McAvoy
+ * @date 2022/10/8 22:07
+ * @version 1.0
  **/
 public class EmitLog {
 
@@ -34,17 +34,19 @@ public class EmitLog {
      *     - 当队列绑定键没有 #、* 时，只接收符合匹配的消息，该队列绑定类型为 direct
      **/
     public static void main(String[] args) throws Exception {
-//        fanoutExchange(); // 扇出模式，消费者为 ReceiveLogs01、ReceiveLogs02
-//        directExchange(); // 直接模式，消费者为 ReceiveLogs03、ReceiveLogs04
-        topicExchange(); // 主题模式，消费者为 ReceiveLogs05、ReceiveLogs06
+		// 扇出模式，消费者为 ReceiveLogs01、ReceiveLogs02
+//        fanoutExchange(); 
+		// 直接模式，消费者为 ReceiveLogs03、ReceiveLogs04
+//        directExchange(); 
+		// 主题模式，消费者为 ReceiveLogs05、ReceiveLogs06
+        topicExchange(); 
     }
 
     /**
-     * @Description: 扇出模式，消费者为 ReceiveLogs01、ReceiveLogs02
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/8 22:33
+     * 扇出模式，消费者为 ReceiveLogs01、ReceiveLogs02
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/8 22:33
      **/
     public static void fanoutExchange() throws Exception {
         Channel channel = RabbitMQUtils.getChannel();
@@ -60,11 +62,10 @@ public class EmitLog {
     }
 
     /**
-     * @Description: 直接模式，消费者为 ReceiveLogs03、ReceiveLogs04
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/9 14:26
+     * 直接模式，消费者为 ReceiveLogs03、ReceiveLogs04
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/9 14:26
      **/
     public static void directExchange() throws Exception {
         Channel channel = RabbitMQUtils.getChannel();
@@ -87,11 +88,10 @@ public class EmitLog {
     }
 
     /**
-     * @Description: 主题模式，消费者为 ReceiveLogs05、ReceiveLogs06
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/9 14:37
+     * 主题模式，消费者为 ReceiveLogs05、ReceiveLogs06
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/9 14:37
      **/
     public static void topicExchange() throws Exception{
         Channel channel = RabbitMQUtils.getChannel();

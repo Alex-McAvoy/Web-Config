@@ -7,10 +7,10 @@ import com.utils.RabbitMQUtils;
 import com.utils.SleepUtils;
 
 /**
- * @Description: 不公平分发的工作线程02
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 17:27
- * @Version: 1.0
+ * 不公平分发的工作线程02
+ * @author Alex McAvoy
+ * @date 2022/10/8 17:27
+ * @version 1.0
  **/
 public class Worker02 {
     public static final String TASK_QUEUE_NAME = "unfair_queue";

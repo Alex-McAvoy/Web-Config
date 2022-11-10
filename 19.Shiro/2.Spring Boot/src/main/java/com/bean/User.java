@@ -3,10 +3,10 @@ package com.bean;
 import lombok.*;
 
 /**
- * @Description: 用户实体
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:15
- * @Version: 1.0
+ * 用户实体
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:15
+ * @version 1.0
  **/
 @Data
 @NoArgsConstructor

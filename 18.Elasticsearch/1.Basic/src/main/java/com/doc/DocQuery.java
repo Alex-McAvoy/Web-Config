@@ -24,10 +24,10 @@ import org.elasticsearch.search.sort.SortOrder;
 import java.io.IOException;
 
 /**
- * @Description: 文档高级查询
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 16:56
- * @Version: 1.0
+ *  文档高级查询
+ * @author Alex McAvoy
+ * @date 2022/10/13 16:56
+ * @version 1.0
  **/
 public class DocQuery {
     public static void main(String[] args) throws IOException {
@@ -51,11 +51,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 查询索引中全部数据
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:26
+     *  查询索引中全部数据
+     * @param [esClient]
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:26
      **/
     private static void allQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -69,19 +69,21 @@ public class DocQuery {
         SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
         System.out.println(response.getTook());
 
-        SearchHits hits = response.getHits(); //查询结果
-        System.out.println(hits.getTotalHits()); //查询条数
+		//查询结果
+        SearchHits hits = response.getHits(); 
+		//查询条数
+        System.out.println(hits.getTotalHits()); 
         for (SearchHit hit : hits) {
             System.out.println(hit.getSourceAsString());
         }
     }
 
     /**
-     * @Description: 条件查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:29
+     *  条件查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:29
      **/
     private static void termQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -100,11 +102,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 分页查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:33
+     *  分页查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:33
      **/
     public static void pageQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -130,11 +132,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 查询排序
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:34
+     *  查询排序
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:34
      **/
     private static void sortQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -156,19 +158,21 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 过滤字段查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:36
+     *  过滤字段查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:36
      **/
     private static void filterQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
         request.indices("user");
         SearchSourceBuilder builder = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
 
-        String[] excludes = {"age"}; //排除字段
-        String[] includes = {}; //包含字段
+		//排除字段
+        String[] excludes = {"age"}; 
+		//包含字段
+        String[] includes = {}; 
         builder.fetchSource(includes, excludes);
         request.source(builder);
 
@@ -184,11 +188,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 组合查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:38
+     *  组合查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:38
      **/
     private static void boolQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -223,11 +227,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 范围查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:43
+     *  范围查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:43
      **/
     private static void rangeQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -254,11 +258,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 模糊查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:44
+     *  模糊查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:44
      **/
     private static void fuzzyQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -280,11 +284,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 高亮查询，查询结果高亮显示
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:46
+     *  高亮查询，查询结果高亮显示
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:46
      **/
     private static void highlightQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -294,9 +298,12 @@ public class DocQuery {
         TermsQueryBuilder termsQueryBuilder = QueryBuilders.termsQuery("name", "zhangsan");
 
         HighlightBuilder highlightBuilder = new HighlightBuilder();
-        highlightBuilder.preTags("<font color='red'>"); //前缀标签
-        highlightBuilder.postTags("</font>"); //后缀标签
-        highlightBuilder.field("name"); //name属性
+		//前缀标签
+        highlightBuilder.preTags("<font color='red'>"); 
+		//后缀标签
+        highlightBuilder.postTags("</font>"); 
+		//name属性
+        highlightBuilder.field("name"); 
 
         builder.highlighter(highlightBuilder);
         builder.query(termsQueryBuilder);
@@ -315,11 +322,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 聚合查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:49
+     *  聚合查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:49
      **/
     private static void aggregationQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();
@@ -342,11 +349,11 @@ public class DocQuery {
     }
 
     /**
-     * @Description: 分组查询
-     * @Param: [esClient]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/13 17:50
+     *  分组查询
+     * @param esClient 连接
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/13 17:50
      **/
     private static void groupQuery(RestHighLevelClient esClient) throws IOException {
         SearchRequest request = new SearchRequest();

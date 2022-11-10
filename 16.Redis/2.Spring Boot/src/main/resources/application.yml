@@ -1,5 +1,18 @@
+server:
+  port: 8080
+
 spring:
-  # 数据源
+  thymeleaf:
+    cache: false # 禁用模板引擎缓存
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/public/ # 修改静态资源访问路径
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true # POST 伪装 PUT 和 DELETE
+
   datasource:
     username: root
     password: 123456
@@ -7,40 +20,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # Druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    # 数据源其他配置
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-    filters: stat,wall
-    maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
-  # Redis
-  redis:
-    host: localhost
-    port: 6379
-
-mybatis:
+mybatis-plus:
   # xxxMapper.xml 文件
-  mapper-locations: classpath:mybatis/mapper/*
-  # MyBatis 配置，可替代全局配置文件，但两者只能保留一个
+  mapper-locations: classpath:mapper/*.xml
   configuration:
     # 开启驼峰映射
     map-underscore-to-camel-case: true
-    # 执行打印SQL日志
+    # 打印SQL日志
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-server:
-  port: 8080
-  servlet:
-    context-path: /redis-springboot # 项目加载路径

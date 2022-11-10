@@ -8,10 +8,10 @@ import org.junit.Test;
 import java.io.InputStream;
 
 /**
- * @Description: 测试 Ehcache
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 17:12
- * @Version: 1.0
+ * 测试 Ehcache
+ * @author Alex McAvoy
+ * @date 2022/10/28 17:12
+ * @version 1.0
  **/
 public class TestEhcache {
     @Test

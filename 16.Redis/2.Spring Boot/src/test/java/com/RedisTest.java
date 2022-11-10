@@ -1,7 +1,6 @@
 package com;
 
 import com.bean.Employee;
-import com.mapper.EmployeeMapper;
 import com.service.EmployeeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,15 +10,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 /**
- * @Description: Redis 基本使用测试
- * @Author: Alex McAvoy
- * @Date: 2022/10/6 18:10
- * @Version: 1.0
+ * Redis 基本使用测试
+ * @author Alex McAvoy
+ * @date 2022/10/6 18:10
+ * @version 1.0
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -36,12 +34,10 @@ public class RedisTest {
     @Autowired
     RedisTemplate<Object,Employee> employeeRedisTemplate; // Redis 序列化器
 
-    /**
-     * @Description: 测试 Redis 的 String 类型，通过 opsForValue(String) 可进行操作
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/6 18:11
+
+    /** 测试 Redis 的 String 类型，通过 opsForValue(String) 可进行操作
+     * @author Alex McAvoy
+     * @date 2022/11/10 22:17
      **/
     @Test
     public void testString() {
@@ -52,12 +48,9 @@ public class RedisTest {
         System.out.println(msg);
     }
 
-    /**
-     * @Description: 测试 Redis 的 List 类型，通过 opsForList(List) 可进行操作
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/6 18:17
+    /** 测试 Redis 的 List 类型，通过 opsForList(List) 可进行操作
+     * @author Alex McAvoy
+     * @date 2022/10/6 18:17
      **/
     @Test
     public void testList() {
@@ -69,12 +62,10 @@ public class RedisTest {
         System.out.println(list);
     }
 
-    /**
-     * @Description: 测试 Redis 的 Set 类型，通过 opsForSet(Set) 可进行操作
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/6 18:17
+
+    /** 测试 Redis 的 Set 类型，通过 opsForSet(Set) 可进行操作
+     * @author Alex McAvoy
+     * @date 2022/11/10 22:18
      **/
     @Test
     public void testSet() {
@@ -88,12 +79,9 @@ public class RedisTest {
         System.out.println(set);
     }
 
-    /**
-     * @Description: 测试 Redis 的 Hash 类型，通过 opsForHash(Hash) 可进行操作
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/6 18:18
+    /** 测试 Redis 的 Hash 类型，通过 opsForHash(Hash) 可进行操作
+     * @author Alex McAvoy
+     * @date 2022/11/10 22:18
      **/
     @Test
     public void testHash() {
@@ -106,12 +94,10 @@ public class RedisTest {
         System.out.println(object);
     }
 
-    /**
-     * @Description: 测试 Redis 的 ZSet 类型，通过 opsForZSet(ZSet) 可进行操作
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/6 18:18
+
+    /** 测试 Redis 的 ZSet 类型，通过 opsForZSet(ZSet) 可进行操作
+     * @author Alex McAvoy
+     * @date 2022/11/10 22:18
      **/
     @Test
     public void testZSet() {
@@ -125,12 +111,10 @@ public class RedisTest {
         System.out.println(zset);
     }
     
-    /**
-     * @Description: 测试 Redis 保存对象
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/6 18:31
+
+    /** 测试 Redis 保存对象
+     * @author Alex McAvoy
+     * @date 2022/11/10 22:19
      **/
     @Test
     public void testSaveObject() {

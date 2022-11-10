@@ -11,10 +11,10 @@ import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/10/14 14:59
- * @Version: 1.0
+ *  测试类
+ * @author Alex McAvoy
+ * @date 2022/10/14 14:59
+ * @version 1.0
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,11 +23,10 @@ public class ElasticsearchIndexTest {
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     /**
-     * @Description: 创建索引，在启动时，系统初始化会根据关联的索引名来自动创建
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 15:07
+     *  创建索引，在启动时，系统初始化会根据关联的索引名来自动创建
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/14 15:07
      **/
     @Test
     public void createIndex() { 

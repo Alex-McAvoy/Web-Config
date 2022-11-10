@@ -18,10 +18,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @Description: Shiro 配置类
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:40
- * @Version: 1.0
+ * Shiro 配置类
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:40
+ * @version 1.0
  **/
 @Configuration
 public class ShiroConfig {
@@ -29,11 +29,10 @@ public class ShiroConfig {
     private MyRealm myRealm;
 
     /**
-     * @Description: 配置 SecurityManager
-     * @Param: []
-     * @Return: DefaultWebSecurityManager
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/28 22:41
+     * 配置 SecurityManager
+     * @return DefaultWebSecurityManager
+     * @author Alex McAvoy
+     * @date 2022/10/28 22:41
      **/
     @Bean
     public DefaultWebSecurityManager defaultWebSecurityManager() {
@@ -60,11 +59,10 @@ public class ShiroConfig {
     }
 
     /**
-     * @Description: Cookie 设置
-     * @Param: []
-     * @Return: org.apache.shiro.web.servlet.SimpleCookie
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 12:23
+     * Cookie 设置
+     * @return org.apache.shiro.web.servlet.SimpleCookie
+     * @author Alex McAvoy
+     * @date 2022/10/29 12:23
      **/
     public SimpleCookie rememberMeCookie() {
         SimpleCookie cookie = new SimpleCookie("rememberMe");
@@ -77,11 +75,10 @@ public class ShiroConfig {
     }
 
     /**
-     * @Description: Cookie 管理对象
-     * @Param: []
-     * @Return: org.apache.shiro.web.mgt.CookieRememberMeManager
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 12:24
+     * Cookie 管理对象
+     * @return org.apache.shiro.web.mgt.CookieRememberMeManager
+     * @author Alex McAvoy
+     * @date 2022/10/29 12:24
      **/
     public CookieRememberMeManager rememberMeManager() {
         CookieRememberMeManager cookieRememberMeManager = new
@@ -92,11 +89,10 @@ public class ShiroConfig {
     }
 
     /**
-     * @Description: 缓存管理器
-     * @Param: []
-     * @Return: org.apache.shiro.cache.ehcache.EhCacheManager
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 14:45
+     * 缓存管理器
+     * @return org.apache.shiro.cache.ehcache.EhCacheManager
+     * @author Alex McAvoy
+     * @date 2022/10/29 14:45
      **/
     public EhCacheManager getEhCacheManager() {
         EhCacheManager ehCacheManager = new EhCacheManager();
@@ -112,11 +108,10 @@ public class ShiroConfig {
     }
 
     /**
-     * @Description: 配置 Shiro 内置过滤器拦截范围
-     * @Param: []
-     * @Return: DefaultShiroFilterChainDefinition
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/28 22:43
+     * 配置 Shiro 内置过滤器拦截范围
+     * @return DefaultShiroFilterChainDefinition
+     * @author Alex McAvoy
+     * @date 2022/10/28 22:43
      **/
     @Bean
     public DefaultShiroFilterChainDefinition
@@ -136,11 +131,10 @@ public class ShiroConfig {
     }
 
     /**
-     * @Description: 解析 thymeleaf 中的 shiro:相关属性
-     * @Param: []
-     * @Return: at.pollux.thymeleaf.shiro.dialect.ShiroDialect
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 14:41
+     * 解析 thymeleaf 中的 shiro:相关属性
+     * @return at.pollux.thymeleaf.shiro.dialect.ShiroDialect
+     * @author Alex McAvoy
+     * @date 2022/10/29 14:41
      **/
     @Bean
     public ShiroDialect shiroDialect() {

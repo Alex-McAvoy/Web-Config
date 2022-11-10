@@ -8,10 +8,10 @@ import com.utils.RabbitMQUtils;
 
 
 /**
- * @Description: 交换机，消费者02，用于扇出模式
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 22:08
- * @Version: 1.0
+ * 交换机，消费者02，用于扇出模式
+ * @author Alex McAvoy
+ * @date 2022/10/8 22:08
+ * @version 1.0
  **/
 public class ReceiveLogs02 {
 

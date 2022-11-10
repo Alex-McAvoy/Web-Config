@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: 基于rabbitmq_delayed_message_exchange插件的延迟队列的生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 13:58
- * @Version: 1.0
+ * 基于 rabbitmq_delayed_message_exchange 插件的延迟队列的生产者
+ * @author Alex McAvoy
+ * @date 2022/10/10 13:58
+ * @version 1.0
  **/
 
 @RestController

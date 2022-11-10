@@ -5,10 +5,10 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
 
 /**
- * @Description: 生成MD5加密密码
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:46
- * @Version: 1.0
+ * 生成MD5加密密码
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:46
+ * @version 1.0
  **/
 public class TestMD5 {
     @Test

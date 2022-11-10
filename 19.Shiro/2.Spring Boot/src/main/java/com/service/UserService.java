@@ -5,10 +5,10 @@ import com.bean.User;
 import java.util.List;
 
 /**
- * @Description: 用户类 Service
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:17
- * @Version: 1.0
+ * 用户类 Service
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:17
+ * @version 1.0
  **/
 public interface UserService {
     User getUserInfoByName(String name);

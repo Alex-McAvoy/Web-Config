@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @Description: 用户类 Mapper
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:16
- * @Version: 1.0
+ * 用户类 Mapper
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:16
+ * @version 1.0
  **/
 @Repository
 public interface UserMapper extends BaseMapper<User> {

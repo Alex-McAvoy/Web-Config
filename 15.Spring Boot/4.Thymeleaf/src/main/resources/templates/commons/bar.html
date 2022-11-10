@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- thymeleaf 抽取模板 th:fragment="抽取片段名"-->
+<nav th:fragment="topBar" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">用户名：[[${session.loginUser}]]</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="搜索" aria-label="Search">
+</nav>
+
+<!-- thymeleaf 抽取模板也可使用 th:fragment="css选择器"-->
+<nav id="sideBar" class="col-md-2 d-none d-md-block bg-light sidebar" style="margin-top: 50px">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <!--/*@thymesVar id="activeUri" type="templates"*/-->
+                <a class="nav-link active"
+                   th:class="${activeUri} == 'main' ? 'nav-link active' : 'nav-link'"
+                   th:href="@{/main}">
+                    主页
+                </a>
+            </li>
+            <li class="nav-item">
+                <!--/*@thymesVar id="activeUri" type="templates"*/-->
+                <a class="nav-link"
+                   th:class="${activeUri} == 'manage' ? 'nav-link active' : 'nav-link'"
+                   th:href="@{/employees}">
+                    员工管理
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>

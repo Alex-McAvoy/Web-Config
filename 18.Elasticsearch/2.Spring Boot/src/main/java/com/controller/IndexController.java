@@ -8,10 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @Description: 索引操作控制器
- * @Author: Alex McAvoy
- * @Date: 2022/10/14 15:22
- * @Version: 1.0
+ *  索引操作控制器
+ * @author Alex McAvoy
+ * @date 2022/10/14 15:22
+ * @version 1.0
  **/
 @Controller
 @RequestMapping("/index")
@@ -20,11 +20,11 @@ public class IndexController {
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     /**
-     * @Description: 创建索引
-     * @Param: [indexName]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 15:26
+     *  创建索引
+     * @param indexName 索引名
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 15:26
      **/
     @GetMapping("/create/{indexName}")
     @ResponseBody
@@ -40,11 +40,11 @@ public class IndexController {
     }
 
     /**
-     * @Description: 删除索引
-     * @Param: [indexName]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/14 15:26
+     *  删除索引
+     * @param indexName 索引名
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/14 15:26
      **/
     @GetMapping("/delete/{indexName}")
     @ResponseBody

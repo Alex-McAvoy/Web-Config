@@ -5,10 +5,10 @@ import com.rabbitmq.client.Channel;
 import com.utils.RabbitMQUtils;
 
 /**
- * @Description: 死信生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/9 14:54
- * @Version: 1.0
+ * 死信生产者
+ * @author Alex McAvoy
+ * @date 2022/10/9 14:54
+ * @version 1.0
  **/
 public class Producer {
     public static final String NORMAL_EXCHANGE_NAME = "normal_exchange";

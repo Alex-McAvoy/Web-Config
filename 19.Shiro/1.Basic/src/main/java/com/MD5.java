@@ -4,10 +4,10 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
 
 /**
- * @Description: Shiro MD5 加密
- * @Author: Alex McAvoy
- * @Date: 2022/10/27 20:34
- * @Version: 1.0
+ * Shiro MD5 加密
+ * @author Alex McAvoy
+ * @date 2022/10/27 20:34
+ * @version 1.0
  **/
 public class MD5 {
     public static void main(String[] args) {

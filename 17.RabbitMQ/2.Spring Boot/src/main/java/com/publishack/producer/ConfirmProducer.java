@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: 高级发布确认生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 19:22
- * @Version: 1.0
+ * 高级发布确认生产者
+ * @author Alex McAvoy
+ * @date 2022/10/10 19:22
+ * @version 1.0
  **/
 @RestController
 @RequestMapping("/confirm")

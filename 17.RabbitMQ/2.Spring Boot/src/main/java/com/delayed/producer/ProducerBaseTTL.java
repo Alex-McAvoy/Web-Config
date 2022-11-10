@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: 基于TTL的延迟队列的生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 11:50
- * @Version: 1.0
+ * 基于TTL的延迟队列的生产者
+ * @author Alex McAvoy
+ * @date 2022/10/10 11:50
+ * @version 1.0
  **/
 @RestController
 @RequestMapping("/ttl")
@@ -20,11 +20,11 @@ public class ProducerBaseTTL {
     private RabbitTemplate rabbitTemplate;
 
     /**
-     * @Description: 使用固定时长的 TTL，每增加一个新的时间需求就要新增一个队列
-     * @Param: [message]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/10 13:53
+     * 使用固定时长的 TTL，每增加一个新的时间需求就要新增一个队列
+     * @param message 消息
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/10 13:53
      **/
     @GetMapping("/sendMessage/{message}")
     public void sendMessage(@PathVariable String message) {
@@ -34,11 +34,12 @@ public class ProducerBaseTTL {
     }
     
     /**
-     * @Description: 使用可变时长的 TTL，每增加一个新的时间需求，传递相应TTL时间参数即可
-     * @Param: [message, ttlTime]
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/10 13:54
+     * 使用可变时长的 TTL，每增加一个新的时间需求，传递相应TTL时间参数即可
+     * @param message 消息
+	 * @param ttlTime ttl
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/10 13:54
      **/
     @GetMapping("/sendMessage/{message}/{ttlTime}")
     public void sendMessage(@PathVariable String message,@PathVariable String ttlTime) {

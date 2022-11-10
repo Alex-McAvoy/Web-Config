@@ -10,10 +10,10 @@ import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 /**
- * @Description: 发布确认生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 20:19
- * @Version: 1.0
+ * 发布确认生产者
+ * @author Alex McAvoy
+ * @date 2022/10/8 20:19
+ * @version 1.0
  **/
 public class ConfirmMessage {
 
@@ -27,79 +27,90 @@ public class ConfirmMessage {
      * - 异步确认：结合单个确认和批量确认的优点，但编码复杂
      **/
     public static void main(String[] args) throws Exception {
-//        publishMessageIndividually(); //单个确认，耗时：696ms
-//        publishMessageBatch(); //批量确认，耗时：96ms
-        publishMessageAsync(); //异步确认，耗时：106ms
+		//单个确认，耗时：696ms
+//        publishMessageIndividually(); 
+		//批量确认，耗时：96ms
+//        publishMessageBatch(); 
+		//异步确认，耗时：106ms
+        publishMessageAsync(); 
     }
-
-    private static final int MESSAGE_COUNT = 1000; //批量发送消息数
+	
+	//批量发送消息数
+    private static final int MESSAGE_COUNT = 1000; 
     private static final String INDIVIDUAL_QUEUE_NAME = "individual_confirm";
     private static final String BATCH_QUEUE_NAME = "batch_confirm";
     private static final String ASYNC_QUEUE_NAME = "async_confirm";
 
     /**
-     * @Description: 单个确认
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/8 20:32
+     * 单个确认
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/8 20:32
      **/
     public static void publishMessageIndividually() throws Exception {
         Channel channel = RabbitMQUtils.getChannel();
         channel.queueDeclare(INDIVIDUAL_QUEUE_NAME, false, false, false, null);
-        channel.confirmSelect(); // 开启 confirm 模式
+		//开启 confirm 模式
+        channel.confirmSelect(); 
 
-        long begin = System.currentTimeMillis(); //开始时间
+		//开始时间
+        long begin = System.currentTimeMillis();
         for (int i = 0; i < MESSAGE_COUNT; i++) {
             String message = i + "";
             channel.basicPublish("", INDIVIDUAL_QUEUE_NAME, null, message.getBytes());
-            boolean flag = channel.waitForConfirms(); //单个消息发布后立刻确认
+			//单个消息发布后立刻确认
+            boolean flag = channel.waitForConfirms(); 
             if (flag) {
                 System.out.println("消息发送成功");
             }
         }
-        long end = System.currentTimeMillis(); //结束时间
+		//结束时间
+        long end = System.currentTimeMillis(); 
 
         System.out.println("发布" + MESSAGE_COUNT + "个单独确认消息，耗时：" + (end - begin) + "ms");
     }
 
     /**
-     * @Description: 批量确认
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/8 20:36
+     * 批量确认
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/8 20:36
      **/
     public static void publishMessageBatch() throws Exception {
         Channel channel = RabbitMQUtils.getChannel();
         channel.queueDeclare(BATCH_QUEUE_NAME, false, false, false, null);
-        channel.confirmSelect(); // 开启 confirm 模式
+		//开启 confirm 模式
+        channel.confirmSelect(); 
 
-        long begin = System.currentTimeMillis(); //开始时间
-        int batchSize = 100; // 批量确认长度
+		//开始时间
+        long begin = System.currentTimeMillis(); 
+		//批量确认长度
+        int batchSize = 100; 
         for (int i = 0; i < MESSAGE_COUNT; i++) {
             String message = i + "";
             channel.basicPublish("", BATCH_QUEUE_NAME, null, message.getBytes());
-            if (i % batchSize == 0) { //达到100条消息时，批量确认一次
+			//达到100条消息时，批量确认一次
+            if (i % batchSize == 0) { 
                 channel.waitForConfirms();
             }
         }
-        long end = System.currentTimeMillis(); //结束时间
+		//结束时间
+        long end = System.currentTimeMillis(); 
 
         System.out.println("发布" + MESSAGE_COUNT + "个批量确认消息，耗时：" + (end - begin) + "ms");
     }
 
     /**
-     * @Description: 异步确认
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/8 20:50
+     * 异步确认
+     * @return void
+     * @author Alex McAvoy
+     * @date 2022/10/8 20:50
      **/
     public static void publishMessageAsync() throws Exception {
         Channel channel = RabbitMQUtils.getChannel();
         channel.queueDeclare(ASYNC_QUEUE_NAME, false, false, false, null);
-        channel.confirmSelect(); // 开启 confirm 模式
+		//开启 confirm 模式
+        channel.confirmSelect(); 
 
         /** 异步确认中，处理未确认的消息
          *   1.使用一个适用于高并发情况下的，线程安全有序的哈希表来记录所有发送的消息序号与消息内容，
@@ -128,15 +139,16 @@ public class ConfirmMessage {
         //消息监听器，监听消息发送成功/失败
         channel.addConfirmListener(ackCallback, nackCallback);
 
-
-        long begin = System.currentTimeMillis(); //开始时间
+		//开始时间
+        long begin = System.currentTimeMillis(); 
         for (int i = 0; i < MESSAGE_COUNT; i++) {
             String message = i + "";
             channel.basicPublish("", ASYNC_QUEUE_NAME, null, message.getBytes());
             //记录所有发送的消息
             outstandingConfirms.put(channel.getNextPublishSeqNo(), message);
         }
-        long end = System.currentTimeMillis(); //结束时间
+		//结束时间
+        long end = System.currentTimeMillis(); 
 
         System.out.println("发布" + MESSAGE_COUNT + "个异步确认消息，耗时：" + (end - begin) + "ms");
     }

@@ -13,10 +13,10 @@ import org.elasticsearch.common.xcontent.XContentType;
 import java.io.IOException;
 
 /**
- * @Description: 文档查询
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 16:56
- * @Version: 1.0
+ *  文档查询
+ * @author Alex McAvoy
+ * @date 2022/10/13 16:56
+ * @version 1.0
  **/
 public class DocGet {
     public static void main(String[] args) throws IOException {

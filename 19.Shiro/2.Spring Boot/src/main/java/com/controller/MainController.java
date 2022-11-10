@@ -16,20 +16,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:44
- * @Version: 1.0
+ * 控制器
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:44
+ * @version 1.0
  **/
 @Controller
 @RequestMapping("/mainController")
 public class MainController {
     /**
-     * @Description: 登录验证
-     * @Param: [name, password]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 12:10
+     * 登录验证
+     * @param name 用户名
+	 * @param password 密码
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/29 12:10
      **/
     @GetMapping("/userLogin")
     public String userLogin(String name, String password,
@@ -51,11 +52,10 @@ public class MainController {
     }
 
     /**
-     * @Description: 跳转登录页
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 12:16
+     * 跳转登录页
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/29 12:16
      **/
     @GetMapping("/login")
     public String login() {
@@ -63,11 +63,11 @@ public class MainController {
     }
 
     /**
-     * @Description: 登录验证 RememberMe
-     * @Param: [httpSession]
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 12:28
+     * 登录验证 RememberMe
+     * @param httpSession HttpSession
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/29 12:28
      **/
     @GetMapping("/userLoginRm")
     public String userLogin(HttpSession httpSession) {
@@ -76,11 +76,10 @@ public class MainController {
     }
 
     /**
-     * @Description: 角色验证
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 12:37
+     * 角色验证
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/29 12:37
      **/
     @RequiresRoles("admin")
     @GetMapping("userLoginRoles")
@@ -91,11 +90,10 @@ public class MainController {
     }
 
     /**
-     * @Description: 登录认证验证权限
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 14:25
+     * 登录认证验证权限
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/29 14:25
      **/
     @RequiresPermissions("user:delete")
     @GetMapping("userPermissions")

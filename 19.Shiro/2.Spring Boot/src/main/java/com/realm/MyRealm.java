@@ -17,18 +17,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @Description: 自定义 Realm
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:27
- * @Version: 1.0
- **/
-
-/**
- * @description:
- * @param:
- * @return:
- * @author: Alex McAvoy
- * @date: 2022/10/28 22:55
+ * 自定义 Realm
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:27
+ * @version 1.0
  **/
 @Component
 public class MyRealm extends AuthorizingRealm {
@@ -36,11 +28,11 @@ public class MyRealm extends AuthorizingRealm {
     private UserService userService;
 
     /**
-     * @Description: 自定义授权方法，获取当前登录用户权限信息，返回给 Shiro 用来进行授权对比
-     * @Param: [principalCollection]
-     * @Return: org.apache.shiro.authz.AuthorizationInfo
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/28 22:28
+     * 自定义授权方法，获取当前登录用户权限信息，返回给 Shiro 用来进行授权对比
+     * @param principalCollection 权限集合
+     * @return org.apache.shiro.authz.AuthorizationInfo
+     * @author Alex McAvoy
+     * @date 2022/10/28 22:28
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -65,11 +57,11 @@ public class MyRealm extends AuthorizingRealm {
     }
 
     /**
-     * @Description: 自定义登录认证方法
-     * @Param: [authenticationToken]
-     * @Return: org.apache.shiro.authc.AuthenticationInfo
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/28 22:28
+     * 自定义登录认证方法
+     * @param authenticationToken 认证token
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     * @author Alex McAvoy
+     * @date 2022/10/28 22:28
      **/
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {

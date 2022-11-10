@@ -4,10 +4,10 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
 /**
- * @Description: Redis 事务
- * @Author: Alex McAvoy
- * @Date: 2022/10/3 13:53
- * @Version: 1.0
+ * Redis 事务
+ * @author Alex McAvoy
+ * @date 2022/10/3 14:18
+ * @version 1.0
  **/
 public class TX {
     /**
@@ -19,7 +19,7 @@ public class TX {
      * 如果在此期间键balance被其它人修改， 那在提交事务（执行exec）时就会报错，
      * 程序中通常可以捕获这类错误再重新执行一次，直到成功。
      **/
-    public boolean transMethod() throws InterruptedException {
+    private boolean transMethod() throws InterruptedException {
         Jedis jedis = new Jedis("127.0.0.1", 6379);
         jedis.set("balance","50");
 

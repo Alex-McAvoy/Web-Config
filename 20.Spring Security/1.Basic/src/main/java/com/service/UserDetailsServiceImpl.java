@@ -2,7 +2,7 @@ package com.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.bean.Person;
-import com.mapper.PersonMapper;
+import com.dao.PersonDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -25,14 +25,14 @@ import java.util.List;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    PersonMapper personMapper;
+    PersonDao personDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //查数据库
         QueryWrapper<Person> wrapper = new QueryWrapper<>();
         wrapper.eq("username", username);
-        Person person = personMapper.selectOne(wrapper);
+        Person person = personDao.selectOne(wrapper);
 
         //判断用户是否存在
         if (person == null) {

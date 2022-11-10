@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>主页</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{/commons/bar::topBar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{/commons/bar::#sideBar(activeUri='main.html')}"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h1>主页</h1>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

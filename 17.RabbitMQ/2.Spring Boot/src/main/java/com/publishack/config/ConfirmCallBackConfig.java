@@ -10,20 +10,21 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
- * @Description: 交换机确认回调接口实现类
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 19:34
- * @Version: 1.0
+ * 交换机确认回调接口实现类
+ * @author Alex McAvoy
+ * @date 2022/10/10 19:34
+ * @version 1.0
  **/
 @Component
 public class ConfirmCallBackConfig implements RabbitTemplate.ConfirmCallback,RabbitTemplate.ReturnsCallback {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+	
     @PostConstruct
-    public void init() { //注入
-        rabbitTemplate.setConfirmCallback(this);
-        rabbitTemplate.setReturnsCallback(this);
+    public void init() { 
+        rabbitTemplate.setConfirmCallback(this); //注入确认回调
+        rabbitTemplate.setReturnsCallback(this); //注入返回回调
     }
 
     /** 确认回调方法

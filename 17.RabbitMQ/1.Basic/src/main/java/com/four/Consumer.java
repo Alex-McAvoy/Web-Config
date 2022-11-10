@@ -4,10 +4,10 @@ import com.rabbitmq.client.*;
 import com.utils.RabbitMQUtils;
 
 /**
- * @Description: 消费者，收消息
- * @Author: Alex McAvoy
- * @Date: 2022/10/7 22:31
- * @Version: 1.0
+ * 消费者，收消息
+ * @author Alex McAvoy
+ * @date 2022/10/7 22:31
+ * @version 1.0
  **/
 public class Consumer {
     public static final String DURABLE_QUEUE_NAME = "durable_queue";

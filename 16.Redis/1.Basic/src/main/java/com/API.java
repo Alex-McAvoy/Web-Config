@@ -5,10 +5,10 @@ import redis.clients.jedis.Jedis;
 import java.util.Set;
 
 /**
- * @Description: Redis 常用 API
- * @Author: Alex McAvoy
- * @Date: 2022/10/3 13:47
- * @Version: 1.0
+ * Redis 常用 API
+ * @author Alex McAvoy
+ * @date 2022/10/3 14:18
+ * @version 1.0
  **/
 public class API {
     public static void main(String[] args) {

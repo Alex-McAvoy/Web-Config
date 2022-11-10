@@ -16,10 +16,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/10/15 13:30
- * @Version: 1.0
+ *  控制器
+ * @author Alex McAvoy
+ * @date 2022/10/15 13:30
+ * @version 1.0
  **/
 @RestController
 @RequestMapping("/search")
@@ -28,11 +28,10 @@ public class SearchController {
     ProductService productService;
 
     /**
-     * @Description: 条件搜索
-     * @Param: []
-     * @Return: java.lang.String
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/15 13:59
+     *  条件搜索
+     * @return java.lang.String
+     * @author Alex McAvoy
+     * @date 2022/10/15 13:59
      **/
     @GetMapping("/termQuery")
     @ResponseBody

@@ -10,10 +10,10 @@ import org.elasticsearch.client.RestHighLevelClient;
 import java.io.IOException;
 
 /**
- * @Description: 删除索引
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 15:57
- * @Version: 1.0
+ *  删除索引
+ * @author Alex McAvoy
+ * @date 2022/10/13 15:57
+ * @version 1.0
  **/
 public class IndexDelete {
     public static void main(String[] args) throws IOException {

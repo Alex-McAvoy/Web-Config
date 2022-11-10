@@ -6,10 +6,10 @@ import com.utils.RabbitMQUtils;
 import java.util.Scanner;
 
 /**
- * @Description: 生产者，大量发消息，以让工作线程轮询
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 17:05
- * @Version: 1.0
+ * 生产者，大量发消息，以让工作线程轮询
+ * @author Alex McAvoy
+ * @date 2022/10/8 17:05
+ * @version 1.0
  **/
 public class Producer {
 

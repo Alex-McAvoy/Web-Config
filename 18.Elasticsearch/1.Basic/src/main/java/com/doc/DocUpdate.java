@@ -15,10 +15,10 @@ import org.elasticsearch.common.xcontent.XContentType;
 import java.io.IOException;
 
 /**
- * @Description: 文档修改
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 16:56
- * @Version: 1.0
+ *  文档修改
+ * @author Alex McAvoy
+ * @date 2022/10/13 16:56
+ * @version 1.0
  **/
 public class DocUpdate {
     public static void main(String[] args) throws IOException {

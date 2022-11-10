@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @Description: 异常处理控制器
- * @Author: Alex McAvoy
- * @Date: 2022/10/29 14:38
- * @Version: 1.0
+ * 异常处理控制器
+ * @author Alex McAvoy
+ * @date 2022/10/29 14:38
+ * @version 1.0
  **/
 @ControllerAdvice
 public class PermissionsException {

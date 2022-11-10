@@ -13,10 +13,10 @@ import org.elasticsearch.common.xcontent.XContentType;
 import java.io.IOException;
 
 /**
- * @Description: 文档删除
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 16:56
- * @Version: 1.0
+ *  文档删除
+ * @author Alex McAvoy
+ * @date 2022/10/13 16:56
+ * @version 1.0
  **/
 public class DocDelete {
     public static void main(String[] args) throws IOException {

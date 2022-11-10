@@ -5,10 +5,10 @@ import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 
 /**
- * @Description: 访问客户端
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 15:30
- * @Version: 1.0
+ *  访问客户端
+ * @author Alex McAvoy
+ * @date 2022/10/13 15:30
+ * @version 1.0
  **/
 public class Client {
     public static void main(String[] args) throws Exception{

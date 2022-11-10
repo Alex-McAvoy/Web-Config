@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: 死信消费者01，正常队列
- * @Author: Alex McAvoy
- * @Date: 2022/10/9 14:58
- * @Version: 1.0
+ * 死信消费者01，正常队列
+ * @author Alex McAvoy
+ * @date 2022/10/9 14:58
+ * @version 1.0
  **/
 public class Consumer01 {
     public static final String NORMAL_EXCHANGE_NAME = "normal_exchange";
@@ -29,21 +29,27 @@ public class Consumer01 {
         channel.exchangeDeclare(NORMAL_EXCHANGE_NAME, BuiltinExchangeType.DIRECT); //声明普通交换机
 
         //---------声明队列---------
-        channel.queueDeclare(DEAD_QUEUE_NAME, false, false, false, null); //声明死信队列
+		//声明死信队列
+        channel.queueDeclare(DEAD_QUEUE_NAME, false, false, false, null); 
 
         //设置声明队列参数
         Map<String, Object> map = new HashMap<>();
-        map.put("x-dead-letter-exchange", DEAD_EXCHANGE_NAME); //正常队列设置死信交换机
-        map.put("x-dead-letter-routing-key", "dead"); //设置死信 routingKey
+		//正常队列设置死信交换机
+        map.put("x-dead-letter-exchange", DEAD_EXCHANGE_NAME); 
+		//设置死信 routingKey
+        map.put("x-dead-letter-routing-key", "dead"); 
 
         /**设置正常队列的长度，死信来源三**/
         map.put("x-max-length", 6);
 
-        channel.queueDeclare(NORMAL_QUEUE_NAME, false, false, false, map); //声明普通队列
+		//声明普通队列
+        channel.queueDeclare(NORMAL_QUEUE_NAME, false, false, false, map); 
 
         //---------绑定交换机与队列---------
-        channel.queueBind(NORMAL_QUEUE_NAME, NORMAL_EXCHANGE_NAME, "normal"); //普通交换机绑定普通队列
-        channel.queueBind(DEAD_QUEUE_NAME, DEAD_EXCHANGE_NAME, "dead"); //死信交换机绑定死信队列
+		//普通交换机绑定普通队列
+        channel.queueBind(NORMAL_QUEUE_NAME, NORMAL_EXCHANGE_NAME, "normal"); 
+		//死信交换机绑定死信队列
+        channel.queueBind(DEAD_QUEUE_NAME, DEAD_EXCHANGE_NAME, "dead"); 
 
         //---------等待接收消息---------
         System.out.println("Consumer01 等待接收消息");

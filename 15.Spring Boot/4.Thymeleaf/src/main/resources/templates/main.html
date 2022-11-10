@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>主页</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+
+<!-- thymeleaf 引入抽取的标签 -->
+<!-- 引入方式
+     <div th:insert=""></div> 公共模板插入到div内部
+     <div th:replace=""></div> 公共模板替换掉div
+     <div th:include=""></div> 公共模板的标签名换为div
+ -->
+
+<!-- 引入 topBar，~{模板名::抽取片段名}，写模板名时，会使用thymeleaf的配置规则，即：/templates/+...+.html -->
+<div th:replace="~{/commons/bar::topBar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- 使用css选择器引入sidebar，~{模板名::Css选择器}，后加括号传递参数-->
+        <div th:replace="~{/commons/bar::#sideBar(activeUri='main')}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h1>主页</h1>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

@@ -14,10 +14,10 @@ import org.elasticsearch.common.xcontent.XContentType;
 import java.io.IOException;
 
 /**
- * @Description: 批量文档插入
- * @Author: Alex McAvoy
- * @Date: 2022/10/13 17:16
- * @Version: 1.0
+ *  批量文档插入
+ * @author Alex McAvoy
+ * @date 2022/10/13 17:16
+ * @version 1.0
  **/
 public class DocBatchInsert {
     public static void main(String[] args) throws IOException {

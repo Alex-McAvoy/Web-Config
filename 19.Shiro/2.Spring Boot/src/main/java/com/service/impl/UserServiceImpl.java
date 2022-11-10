@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @Description: 用户类 Service 的实现类
- * @Author: Alex McAvoy
- * @Date: 2022/10/28 22:20
- * @Version: 1.0
+ * 用户类 Service 的实现类
+ * @author Alex McAvoy
+ * @date 2022/10/28 22:20
+ * @version 1.0
  **/
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,11 +21,11 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     /**
-     * @Description: 用户登录
-     * @Param: [name]
-     * @Return: com.bean.User
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/28 22:21
+     * 用户登录
+     * @param name 用户名
+     * @return com.bean.User
+     * @author Alex McAvoy
+     * @date 2022/10/28 22:21
      **/
     @Override
     public User getUserInfoByName(String name) {
@@ -35,11 +35,11 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * @Description: 根据用户查询角色信息
-     * @Param: [principal]
-     * @Return: java.util.List<java.lang.String>
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 14:23
+     * 根据用户查询角色信息
+     * @param principal 权限
+     * @return java.util.List<java.lang.String>
+     * @author Alex McAvoy
+     * @date 2022/10/29 14:23
      **/
     @Override
     public List<String> getUserRoleInfo(String principal) {
@@ -47,11 +47,11 @@ public class UserServiceImpl implements UserService {
     }
     
     /**
-     * @Description: 获取用户角色的权限信息
-     * @Param: [roles]
-     * @Return: java.util.List<java.lang.String>
-     * @Author: Alex McAvoy
-     * @Date: 2022/10/29 14:24
+     * 获取用户角色的权限信息
+     * @param roles 角色
+     * @return java.util.List<java.lang.String>
+     * @author Alex McAvoy
+     * @date 2022/10/29 14:24
      **/
     @Override
     public List<String> getUserPermissionInfo(List<String> roles) {

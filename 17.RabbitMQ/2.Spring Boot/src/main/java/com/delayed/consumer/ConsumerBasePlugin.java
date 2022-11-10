@@ -5,10 +5,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description: 基于rabbitmq_delayed_message_exchange插件的延迟队列的消费者
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 11:58
- * @Version: 1.0
+ * 基于 rabbitmq_delayed_message_exchange 插件的延迟队列的消费者
+ * @author Alex McAvoy
+ * @date 2022/10/10 11:58
+ * @version 1.0
  **/
 @Component
 public class ConsumerBasePlugin {

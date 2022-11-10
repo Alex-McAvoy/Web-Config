@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 /**
- * @Description: 高级发布确认的配置类
- * @Author: Alex McAvoy
- * @Date: 2022/10/10 19:14
- * @Version: 1.0
+ * 高级发布确认的配置类
+ * @author Alex McAvoy
+ * @date 2022/10/10 19:14
+ * @version 1.0
  **/
 @Configuration
 public class ConfirmConfig {

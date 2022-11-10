@@ -6,10 +6,10 @@ import com.utils.RabbitMQUtils;
 import java.util.Scanner;
 
 /**
- * @Description: 不公平分发的生产者
- * @Author: Alex McAvoy
- * @Date: 2022/10/8 17:31
- * @Version: 1.0
+ * 不公平分发的生产者
+ * @author Alex McAvoy
+ * @date 2022/10/8 17:31
+ * @version 1.0
  **/
 public class Producer {
     public static final String TASK_QUEUE_NAME = "unfair_queue";

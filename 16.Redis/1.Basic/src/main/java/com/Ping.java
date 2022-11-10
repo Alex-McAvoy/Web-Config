@@ -3,10 +3,10 @@ package com;
 import redis.clients.jedis.Jedis;
 
 /**
- * @Description: 连接 redis
- * @Author: Alex McAvoy
- * @Date: 2022/10/3 13:41
- * @Version: 1.0
+ * 连接 redis
+ * @author Alex McAvoy
+ * @date 2022/10/3 14:18
+ * @version 1.0
  **/
 public class Ping {
     public static void main(String[] args) {
