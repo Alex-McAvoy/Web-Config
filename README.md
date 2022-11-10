@@ -25,9 +25,9 @@
 15. Spring Boot：Spring Boot+MyBatis 编写的员工信息管理的 demo，前端采用 thymeleaf，包括基本 CRUD、自定义异常
     1. Environment：Spring Boot 环境切换与控制器的基本使用
     2. Bean：Spring Boot 注入 Bean
-    3. Thymeleaf：Spring Boot 的 Thymeleaf 模板
-    4. Mybatis Plus：Spring Boot 整合 Druid 数据源与 MyBatis Plus
-    5. MVC&Exception：Spring Boot 的 MVC 配置、登录拦截、自定义异常
+    3. MVC&Exception：Spring Boot 的 MVC 静态资源配置、映射处理与拦截器、自定义异常
+    4. Thymeleaf：Spring Boot 的 Thymeleaf 模板使用、POST 请求伪装 PUT、DELETE 请求
+    5. Mybatis Plus：Spring Boot 整合 Druid 数据源与 MyBatis Plus
     6. Task：Spring Boot 的计划任务，包括异步任务、定时任务、邮件任务
     7. Monitor：Spring Boot 日志管理、监控审计的使用
 16. Redis：
