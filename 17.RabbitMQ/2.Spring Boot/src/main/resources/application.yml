@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+    # 高级发布确认，消息成功到交换机后，会触发回调方法
+    publisher-confirm-type: correlated
+    # 开启发布退回
+    publisher-returns: true

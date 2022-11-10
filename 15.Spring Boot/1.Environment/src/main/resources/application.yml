@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: prod # 激活开发环境
+
+---
+# 开发环境
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot # 项目加载路径
+
+---
+# 测试环境
+spring:
+  config:
+    activate:
+      on-profile: test
+
+server:
+  port: 8081
+  servlet:
+    context-path: /springboot-test # 项目加载路径
+
