@@ -1,9 +1,8 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Alex McAvoy
-  Date: 2022/4/20
-  Time: 21:13
-  To change this template use File | Settings | File Templates.
+  @description: 列表
+  @author: Alex McAvoy
+  @date: 2022/4/20 21:13
+  @version: 1.0
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>

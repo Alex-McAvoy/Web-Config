@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 逆向工程
- * @Param: 
- * @Return: 
- * @Author: Alex McAvoy
- * @Date: 2022/4/16 16:56
+ * 逆向工程
+ * @author Alex McAvoy
+ * @date 2022/4/16 16:56
+ * @version 1.0
  **/
 public class MBGTest {
     public static void main(String[] args) throws Exception {

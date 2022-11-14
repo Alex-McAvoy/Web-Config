@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.crud.dao.DepartmentMapper" >
-  <resultMap id="BaseResultMap" type="com.crud.bean.Department" >
+<mapper namespace="com.dao.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.bean.Department" >
     <id column="dept_id" property="deptId" jdbcType="INTEGER" />
     <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List" >
     dept_id, dept_name
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.crud.bean.DepartmentExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bean.DepartmentExample" >
     select
     <if test="distinct" >
       distinct
@@ -90,17 +90,17 @@
     delete from department
     where dept_id = #{deptId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.crud.bean.DepartmentExample" >
+  <delete id="deleteByExample" parameterType="com.bean.DepartmentExample" >
     delete from department
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.crud.bean.Department" >
+  <insert id="insert" parameterType="com.bean.Department" >
     insert into department (dept_id, dept_name)
     values (#{deptId,jdbcType=INTEGER}, #{deptName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.crud.bean.Department" >
+  <insert id="insertSelective" parameterType="com.bean.Department" >
     insert into department
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="deptId != null" >
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.crud.bean.DepartmentExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.bean.DepartmentExample" resultType="java.lang.Integer" >
     select count(*) from department
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.crud.bean.Department" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.Department" >
     update department
     <set >
       <if test="deptName != null" >
@@ -156,7 +156,7 @@
     </set>
     where dept_id = #{deptId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.crud.bean.Department" >
+  <update id="updateByPrimaryKey" parameterType="com.bean.Department" >
     update department
     set dept_name = #{deptName,jdbcType=VARCHAR}
     where dept_id = #{deptId,jdbcType=INTEGER}

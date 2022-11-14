@@ -1,11 +1,9 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Alex McAvoy
-  Date: 2022/4/16
-  Time: 13:51
-  To change this template use File | Settings | File Templates.
+  @description: 列表
+  @author: Alex McAvoy
+  @date: 2022/4/21 13:51
+  @version: 1.0
 --%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -371,7 +369,7 @@
     $("#empName_add_input").change(function () { //校验用户名是否可用
         var empName = this.value;
         $.ajax({  //发送ajax请求校验用户名是否可用
-            url: "${APP_PATH}/checkuser",
+            url: "${APP_PATH}/checkUser",
             data: "empName=" + empName,
             type: "POST",
             success: function (result) {

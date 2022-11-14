@@ -1,7 +1,7 @@
-import com.crud.bean.Department;
-import com.crud.bean.Employee;
-import com.crud.dao.DepartmentMapper;
-import com.crud.dao.EmployeeMapper;
+import com.bean.Department;
+import com.bean.Employee;
+import com.dao.DepartmentMapper;
+import com.dao.EmployeeMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,10 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.UUID;
 
 /**
- * @Description: 测试 Dao 层
- * @Author: Alex McAvoy
- * @Date: 2022/4/16 18:51
- * @Version: 1.0
+ * 测试 Dao 层
+ * @author Alex McAvoy
+ * @date 2022/4/16 18:51
+ * @version 1.0
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})

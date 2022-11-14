@@ -21,6 +21,6 @@
 		<setting name="localCacheScope" value="SESSION"/>
     </settings>
 	<plugins>
-		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"/>
 	</plugins>
 </configuration>
