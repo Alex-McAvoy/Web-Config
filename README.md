@@ -9,9 +9,9 @@
 5. SSH：使用 Struts2+Hibernate+Spring4 整合编写的员工信息管理的 demo，前后端数据交互采用 Ajax
 6. Spring MVC：使用 Spring MVC 框架实现简单页面跳转，含 Spring MVC 配置文件 springmvc.xml
 7. Spring Annotation：学习使用 Spring 注解驱动开发，包括：组件注册与组件生命周期、自动注入 Autowire、切面编程 AOP、事务管理 Transaction
-8. JPA：学习使用 JPA（Hibernate），含相关配置文件及 ehcache 缓存配置文件
-9. Spring Data：学习使用 Spring Data，含相关配置文件
-10. SSSP：使用 SpringMvc+Spring+Spring Data+JPA（Hibernate） 整合编写的员工信息管理的 demo，前后端数据交互采用 Ajax
+8. JPA：学习使用 JPA（Hibernate）
+9. Spring Data：学习使用 Spring Data，包括：基本 CRUD、级联查询、排序与分页
+10. SSSP：使用 SpringMvc+Spring+Spring Data+JPA（Hibernate） 整合编写的员工信息管理的 demo
 11. MyBatis
     1. Basic：MyBatis 的基本使用，包括：基本 CRUD、级联查询、动态 SQL、二级缓存、分页查询
     2. Generator：MyBatis Generator 逆向工程
