@@ -30,7 +30,7 @@
              - targetPackage：目标包名
              - targetProject：目标工程
         -->
-        <javaModelGenerator targetPackage="com.crud.bean"
+        <javaModelGenerator targetPackage="com.bean"
                             targetProject=".\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -43,7 +43,7 @@
         </sqlMapGenerator>
 
         <!-- 指定mapper接口所在的位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.crud.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dao"
                              targetProject=".\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

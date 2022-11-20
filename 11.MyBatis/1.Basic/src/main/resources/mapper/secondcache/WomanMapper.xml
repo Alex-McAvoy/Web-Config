@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 每个namespace都有一个对应的二级缓存，会对应多个相应的sqlSession的一级缓存 -->
+<mapper namespace="com.dao.secondcache.WomanMapper">
+	<!-- 使用 Ehcache -->
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"></cache>
+
+    <select id="getWomanById" resultType="com.bean.secondcache.Woman" useCache="true">
+		SELECT * FROM woman WHERE id = #{id};
+	</select>
+
+	<insert id="addWoman" parameterType="com.bean.secondcache.Woman"
+			useGeneratedKeys="true" keyProperty="id" flushCache="true">
+		INSERT INTO woman(name,gender,email) VALUES (#{name},#{gender},#{email});
+	</insert>
+</mapper>

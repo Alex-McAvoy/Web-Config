@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间,指定为 dao 接口的全类名 -->
+<mapper namespace="com.dao.base.EmployeeMapper">
+    <!--
+        id：唯一标识，指定为 dao 接口中对应的方法名
+        resultType：返回值类型，为返回类型的全类名，可在MyBatis全局配置文件中使用<typeAliases>标签起别名，推荐使用全类名方式
+        #{id}：从传递过来的参数中取出id值
+     -->
+    <select id="getEmployeeById" resultType="employee">
+		SELECT * FROM employee WHERE id = #{id};
+	</select>
+
+	<!-- useGeneratedKeys: 使用自增主键获取主键值策略-->
+	<!-- keyProperty: 指定对应主键属性，即MyBatis获取到主键值后将这个值封装给javabean的哪个属性 -->
+    <insert id="addEmployee" parameterType="employee" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO employee(name,gender,email) VALUES(#{name},#{gender},#{email});
+	</insert>
+
+    <update id="updateEmployee">
+		UPDATE employee SET name = #{name}, gender = #{gender}, email = #{email} WHERE id = #{id};
+	</update>
+
+    <delete id="deleteEmployeeById">
+		DELETE FROM employee WHERE id = #{id};
+	</delete>
+
+	<!-- 在查询时，多个参数会被封装成一个map，key默认设为param1、param2...，需要用key在#{}中进行占位 -->
+	<select id="getEmployeeByIdAndName" resultType="employee">
+		SELECT * FROM employee WHERE id = #{param1} AND name = #{param2};
+	</select>
+
+	<!-- 由于多个参数被封装成map后，key默认设为param1、param2...，当参数过多时不利于开发，为此引入命名参数 -->
+	<!-- 命名参数：在接口方法中，通过 @Param 注解来指定key，从而在 #{} 中利用key进行占位 -->
+	<select id="getEmployeeByIdAndGender" resultType="employee">
+		SELECT * FROM employee WHERE id = #{id} AND gender = #{gender};
+	</select>
+
+	<!-- 若多个参数是业务逻辑的数据模型，可直接传入 POJO，通过 #{属性名} 来取出传入的 POJO 属性值 -->
+	<!-- 若多个参数不是业务逻辑中的数据模型，没有对应的 POJO，为方便可传入 Map，通过 #{key} 来取出 map 中的对应值-->
+    <!-- 对于不经常需要使用的传入参数，可以使用上述的 map 方式，但对于经常需要传入的，可以编写一个 TO（Transfer Object）来传输 -->
+	<select id="getEmployeeByMap" resultType="employee">
+		SELECT * FROM employee WHERE id = #{id} AND name = #{name};
+	</select>
+
+    <!-- 若要返回集合，resultType 中要写返回集合中的类型 -->
+    <select id="getEmployeeByNameLike" resultType="employee">
+        SELECT * FROM employee WHERE name LIKE #{name};
+    </select>
+
+    <!-- 返回封装一条信息的 Map, key 为列名，value 为对应值 -->
+    <select id="getEmployeeByIdReturnMap" resultType="map">
+        SELECT * FROM employee WHERE id = #{id};
+    </select>
+
+    <!-- 返回封装多条信息的 Map，key 为 id，value 为对应 JavaBean-->
+    <select id="getEmployeeByNameReturnMap" resultType="employee">
+        SELECT * FROM employee WHERE name LIKE #{name};
+    </select>
+</mapper>

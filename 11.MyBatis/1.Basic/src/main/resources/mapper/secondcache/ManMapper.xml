@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 每个namespace都有一个对应的二级缓存，会对应多个相应的sqlSession的一级缓存 -->
+<mapper namespace="com.dao.secondcache.ManMapper">
+
+
+	<!-- 二级缓存 -->
+	<!-- 参数说明
+     	 eviction：缓存回收策略，FIFO、LRU最近最少未使用(默认)、SOFT软引用、WEAK弱引用
+         flushInterval：缓存刷新间隔，即缓存多长时间清空一次，默认不清空，以毫秒为单位
+         readOnly：是否只读
+          - true：MyBatis认为所有从缓存中获取的数据均为只读，会将数据在缓存中的引用直接交给用户，速度快但不安全
+          - false：默认，MyBatis认为获取的数据可能会被修改，会利用序列化与反序列化克隆一份新数据，安全但速度慢
+         size：缓存存放多少元素
+         type：指定自定义缓存的全类名，若想自定义，需要实现Cache接口
+	 -->
+	<cache eviction="FIFO" flushInterval="60000" readOnly="false" size="1024"></cache>
+
+	<!-- 每个select标签都有 useCache 属性，默认为 true，若设为 false 将无法使用二级缓存 -->
+    <select id="getManById" resultType="com.bean.secondcache.Man" useCache="true">
+		SELECT * FROM man WHERE id = #{id};
+	</select>
+
+	<!-- 每个增删改标签都有 flushCache 属性，默认为true，每当增删改执行完成后，就会清除缓存（一级二级均清空） -->
+	<!-- 查询标签也有flushCache属性，但默认为false -->
+	<insert id="addMan" parameterType="com.bean.secondcache.Man"
+			useGeneratedKeys="true" keyProperty="id" flushCache="true">
+		INSERT INTO man(name,gender,email) VALUES (#{name},#{gender},#{email});
+	</insert>
+</mapper>
