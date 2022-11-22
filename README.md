@@ -3,15 +3,15 @@
 学习 Web 技术栈时的 demo 与配置文件，自用
 
 1. JDBC：使用 db.properties 连接数据库并进行 CRUD 的工具类
-2. Struts2：学习使用 Struts2 框架实现简单页面跳转，含 Struts2 配置文件 struts.xml
-3. Hibernate：学习使用 Hibernate，含 Hibernate 配置文件 hibernate.cfg.xml（在 IDEA 中使用时，需配置 Database 数据源）
-4. Spring4：学习使用 Spring4 框架，包括：JDBC、控制反转 IOC、切面编程 AOP、基本注解 Annotation、事务管理 Transaction
-5. SSH：使用 Struts2+Hibernate+Spring4 整合编写的员工信息管理的 demo，前后端数据交互采用 Ajax
+2. Struts2：学习使用 Struts2 框架实现简单页面跳转
+3. Hibernate：学习使用 Hibernate，包括：基本使用、表映射、事务管理
+4. Spring：学习使用 Spring 框架，包括：JDBC、控制反转 IOC、组件注入、切面编程、基本注解、事务管理
+5. SSH：使用 Struts2+Hibernate+Spring 整合编写的员工信息管理的 demo
 6. Spring MVC：学习使用 Spring MVC 框架，包括：模型与视图、RequestMapping 请求映射、POJO 绑定、异常抛出
-7. Spring Annotation：学习使用 Spring 注解驱动开发，包括：组件注册与组件生命周期、自动注入 Autowire、切面编程 AOP、事务管理 Transaction
-8. JPA：学习使用 JPA（Hibernate），包括：基本 CRUD（一对一关系、单向一对多关系、单向多对一关系、双向多对多关系、双向一对一关系、双向一对多关系）、事务管理、二级缓存、JPQL
+7. Spring Annotation：学习使用 Spring 注解驱动开发，包括：组件注册与组件生命周期、自动注入、切面编程、事务管理
+8. JPA：学习使用 JPA，包括：基本 CRUD（一对一关系、单向一对多关系、单向多对一关系、双向多对多关系、双向一对一关系、双向一对多关系）、事务管理、二级缓存、JPQL
 9. Spring Data：学习使用 Spring Data，包括：基本 CRUD、级联查询、排序与分页
-10. SSSP：使用 SpringMvc+Spring+Spring Data+JPA（Hibernate） 整合编写的员工信息管理的 demo
+10. SSSP：使用 SpringMvc+Spring+Spring Data+JPA 整合编写的员工信息管理的 demo
 11. MyBatis
     1. Basic：MyBatis 的基本使用，包括：基本 CRUD、级联查询、动态 SQL、二级缓存、分页查询
     2. Generator：MyBatis Generator 逆向工程
