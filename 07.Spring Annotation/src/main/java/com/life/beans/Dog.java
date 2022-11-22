@@ -6,10 +6,10 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/6/27 22:19
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/6/27 22:19
+ * @version 1.0
  **/
 @Component
 public class Dog {

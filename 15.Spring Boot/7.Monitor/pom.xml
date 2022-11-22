@@ -16,6 +16,11 @@
     </parent>
 
     <dependencies>
+		<!-- Springboot 启动 -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <!-- Springboot web 模块 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

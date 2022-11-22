@@ -3,10 +3,10 @@ package com.property.beans;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/6/27 22:37
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/6/27 22:37
+ * @version 1.0
  **/
 public class Man {
     @Value("XX")

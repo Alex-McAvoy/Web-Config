@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/7/1 22:51
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/7/1 22:51
+ * @version 1.0
  **/
 @Repository
 public class UserDao {

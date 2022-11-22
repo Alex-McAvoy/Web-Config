@@ -4,10 +4,10 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * @Description: AOP 测试类
- * @Author: Alex McAvoy
- * @Date: 2022/6/28 0:32
- * @Version: 1.0
+ * AOP 测试类
+ * @author Alex McAvoy
+ * @date 2022/6/28 0:32
+ * @version 1.0
  **/
 public class AOPTest {
     @Test

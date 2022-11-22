@@ -8,19 +8,19 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * @Description: 判断系统是否为 Windows 系统
- * @Author: Alex McAvoy
- * @Date: 2022/6/27 0:48
- * @Version: 1.0
+ * 判断系统是否为 Windows 系统
+ * @author Alex McAvoy
+ * @date 2022/6/27 0:48
+ * @version 1.0
  **/
 public class WindowsCondition implements Condition {
 
     /**
-     * @Description: 匹配条件
+     * 匹配条件
      * @Param: [conditionContext：判断条件使用上下文, annotatedTypeMetadata：注释信息]
      * @Return: boolean
-     * @Author: Alex McAvoy
-     * @Date: 2022/6/27 0:50
+     * @author Alex McAvoy
+     * @date 2022/6/27 0:50
      **/
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {

@@ -1,10 +1,10 @@
 package com.component.beans;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/6/27 1:00
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/6/27 1:00
+ * @version 1.0
  **/
 public class Worker {
     private String name;

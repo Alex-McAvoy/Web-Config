@@ -6,10 +6,10 @@ import org.aspectj.lang.annotation.*;
 import java.util.Arrays;
 
 /**
- * @Description: 日志切面类
- * @Author: Alex McAvoy
- * @Date: 2022/7/1 21:58
- * @Version: 1.0
+ * 日志切面类
+ * @author Alex McAvoy
+ * @date 2022/7/1 21:58
+ * @version 1.0
  **/
 @Aspect
 public class LogAspects {

@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/6/28 0:21
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/6/28 0:21
+ * @version 1.0
  **/
 @Component
 public class Boss {

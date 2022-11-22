@@ -1,10 +1,10 @@
 package com.component.beans;
 
 /**
- * @Description: Book 实体类
- * @Author: Alex McAvoy
- * @Date: 2022/6/27 0:22
- * @Version: 1.0
+ * Book 实体类
+ * @author Alex McAvoy
+ * @date 2022/6/27 0:22
+ * @version 1.0
  **/
 public class Book {
     private String name;

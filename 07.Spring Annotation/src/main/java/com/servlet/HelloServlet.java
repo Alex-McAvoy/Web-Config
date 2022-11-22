@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Description: Servlet3.0
- * @Author: Alex McAvoy
- * @Date: 2022/7/1 23:19
- * @Version: 1.0
+ * Servlet3.0
+ * @author Alex McAvoy
+ * @date 2022/7/1 23:19
+ * @version 1.0
  **/
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {

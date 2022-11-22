@@ -49,8 +49,10 @@ public class RedisConfig {
     @Primary
     @Bean
     RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-        RedisSerializer<String> redisSerializer = new StringRedisSerializer();
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        //Redis 序列化器
+		RedisSerializer<String> redisSerializer = new StringRedisSerializer();
+        //Json 序列化器
+		Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
 
         // 解决查询缓存转换异常的问题
         ObjectMapper om = new ObjectMapper();
@@ -59,9 +61,10 @@ public class RedisConfig {
                 ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
         jackson2JsonRedisSerializer.setObjectMapper(om);
 
-        // 配置 Json 序列化
+        // 配置 Json 序列化，解决乱码问题
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-                .entryTtl(Duration.ZERO)
+                //过期时间0秒
+				.entryTtl(Duration.ZERO)
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
                 .disableCachingNullValues();

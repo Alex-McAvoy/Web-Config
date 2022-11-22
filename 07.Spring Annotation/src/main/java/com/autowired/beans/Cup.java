@@ -3,10 +3,10 @@ package com.autowired.beans;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/6/28 0:00
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/6/28 0:00
+ * @version 1.0
  **/
 @Component
 public class Cup {

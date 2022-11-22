@@ -10,19 +10,17 @@ import org.springframework.core.env.Environment;
 import java.util.Map;
 
 /**
- * @Description: 组件注册测试类
- * @Author: Alex McAvoy
- * @Date: 2022/6/26 23:10
- * @Version: 1.0
+ * 组件注册测试类
+ * @author Alex McAvoy
+ * @date 2022/6/26 23:10
+ * @version 1.0
  **/
 public class ComponentTest {
 
     /**
-     * @Description: 测试 Spring 的扫描包 @ComponentScan
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/6/27 0:06
+     * 测试 Spring 的扫描包 @ComponentScan
+     * @author Alex McAvoy
+     * @date 2022/6/27 0:06
      **/
     @Test
     @SuppressWarnings("resource")
@@ -35,11 +33,9 @@ public class ComponentTest {
     }
 
     /**
-     * @Description: 测试 Spring 组件注册，@Configuration 和 @Bean 注解
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/6/26 23:12
+     * 测试 Spring 组件注册，@Configuration 和 @Bean 注解
+     * @author Alex McAvoy
+     * @date 2022/6/26 23:12
      **/
     @Test
     public void testConfiguration() {
@@ -54,11 +50,9 @@ public class ComponentTest {
     }
 
     /**
-     * @Description: 测试组件作用域 @Scope
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/6/27 0:21
+     * 测试组件作用域 @Scope
+     * @author Alex McAvoy
+     * @date 2022/6/27 0:21
      **/
     @Test
     public void testScope() {
@@ -72,11 +66,9 @@ public class ComponentTest {
     }
 
     /**
-     * @Description: 测试懒加载 @Lazy
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/6/27 0:33
+     * 测试懒加载 @Lazy
+     * @author Alex McAvoy
+     * @date 2022/6/27 0:33
      **/
     @Test
     public void testLazy() {
@@ -87,11 +79,9 @@ public class ComponentTest {
     }
 
     /**
-     * @Description: 测试条件注册 @Conditional
-     * @Param: []
-     * @Return: void
-     * @Author: Alex McAvoy
-     * @Date: 2022/6/27 1:00
+     * 测试条件注册 @Conditional
+     * @author Alex McAvoy
+     * @date 2022/6/27 1:00
      **/
     @Test
     public void testCondition() {

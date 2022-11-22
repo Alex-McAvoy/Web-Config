@@ -1,10 +1,10 @@
 package com.tx.beans;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/7/1 22:52
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/7/1 22:52
+ * @version 1.0
  **/
 public class User {
     private Integer id;

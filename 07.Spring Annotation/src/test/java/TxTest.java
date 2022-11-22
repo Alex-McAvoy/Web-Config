@@ -4,10 +4,10 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * @Description: 声明式事务测试类
- * @Author: Alex McAvoy
- * @Date: 2022/7/1 22:37
- * @Version: 1.0
+ * 声明式事务测试类
+ * @author Alex McAvoy
+ * @date 2022/7/1 22:37
+ * @version 1.0
  **/
 public class TxTest {
     @Test

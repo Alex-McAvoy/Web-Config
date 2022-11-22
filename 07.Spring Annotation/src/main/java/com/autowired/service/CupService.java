@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
- * @Description: TODO
- * @Author: Alex McAvoy
- * @Date: 2022/6/28 0:01
- * @Version: 1.0
+ * TODO
+ * @author Alex McAvoy
+ * @date 2022/6/28 0:01
+ * @version 1.0
  **/
 @Service
 public class CupService {
