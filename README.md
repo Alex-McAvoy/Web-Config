@@ -7,9 +7,9 @@
 3. Hibernate：学习使用 Hibernate，含 Hibernate 配置文件 hibernate.cfg.xml（在 IDEA 中使用时，需配置 Database 数据源）
 4. Spring4：学习使用 Spring4 框架，包括：JDBC、控制反转 IOC、切面编程 AOP、基本注解 Annotation、事务管理 Transaction
 5. SSH：使用 Struts2+Hibernate+Spring4 整合编写的员工信息管理的 demo，前后端数据交互采用 Ajax
-6. Spring MVC：使用 Spring MVC 框架实现简单页面跳转，含 Spring MVC 配置文件 springmvc.xml
+6. Spring MVC：学习使用 Spring MVC 框架，包括：模型与视图、RequestMapping 请求映射、POJO 绑定、异常抛出
 7. Spring Annotation：学习使用 Spring 注解驱动开发，包括：组件注册与组件生命周期、自动注入 Autowire、切面编程 AOP、事务管理 Transaction
-8. JPA：学习使用 JPA（Hibernate）
+8. JPA：学习使用 JPA（Hibernate），包括：基本 CRUD（一对一关系、单向一对多关系、单向多对一关系、双向多对多关系、双向一对一关系、双向一对多关系）、事务管理、二级缓存、JPQL
 9. Spring Data：学习使用 Spring Data，包括：基本 CRUD、级联查询、排序与分页
 10. SSSP：使用 SpringMvc+Spring+Spring Data+JPA（Hibernate） 整合编写的员工信息管理的 demo
 11. MyBatis
@@ -42,6 +42,5 @@
 19. Shiro
     1. Basic：学习 Shiro 的基本使用，包括：登录认证、Session 的使用、用户角色、权限与行为、登出、MD5 加密
     2. Spring Boot：学习使用 SpringBoot 整合 Shiro，包括：权限认证、角色认证、登出、Realm 认证策略设置、Remember Me、会话管理、结合 Ehcache 实现缓存
-20. Spring Security
-    1. Basic：学习 Spring Security 的基本使用，包括：权限认证、角色认证、基于注解的认证、登出、Remember Me、CSRF 防护
+20. Spring Security：学习 Spring Security 的基本使用，包括：权限认证、角色认证、基于注解的认证、登出、Remember Me、CSRF 防护
 
