@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "32941116",
+      "name": "草原",
+      "font_class": "caoyuan",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "32961397",
+      "name": "JPG",
+      "font_class": "JPG",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "32961406",
+      "name": "完成",
+      "font_class": "wancheng",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "32961666",
+      "name": "文件",
+      "font_class": "wenjian",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    }
+  ]
+}

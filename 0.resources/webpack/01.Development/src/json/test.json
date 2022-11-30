@@ -1,0 +1,18 @@
+{
+  "course": [
+    {
+      "id": 1000,
+      "course_name": "道德的谱系",
+      "autor": "尼采",
+      "college": "存在主义",
+      "category_Id": 2
+    },
+    {
+      "id": 1001,
+      "course_name": "存在与时间",
+      "autor": "海德格尔",
+      "college": "存在主义",
+      "category_Id": 2
+    }
+  ]
+}
