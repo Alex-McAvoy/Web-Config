@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false # 禁用模板引擎缓存
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/public/ # 修改静态资源访问路径
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true # POST 伪装 PUT 和 DELETE
+
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springboot_redis
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # Druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis-plus:
+  # xxxMapper.xml 文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 开启驼峰映射
+    map-underscore-to-camel-case: true
+    # 打印SQL日志
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

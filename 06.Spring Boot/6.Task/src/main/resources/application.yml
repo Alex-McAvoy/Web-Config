@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot # 项目加载路径
+
+spring:
+  thymeleaf:
+    cache: false # 禁用模板引擎缓存
+
+  # 邮件发送任务
+  mail:
+    username:   # 发送邮箱
+    password:   # 邮箱密码（QQ邮箱为授权码）
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true  # 开启SSL
