@@ -35,7 +35,7 @@
    5. Mybatis Plus：Spring Boot 整合 Druid 数据源与 MyBatis Plus
    6. Task：Spring Boot 的计划任务，包括异步任务、定时任务、邮件任务
    7. Monitor：Spring Boot 日志管理、监控审计的使用
-7. SpringCloud：学习使用 SpringCloud，SpringBoot 版本 2.4.5，SpringCloud 版本2020.0.5，SpringCloud Alibaba 版本 2021.1
+7. SpringCloud：学习使用 SpringCloud，SpringBoot 版本 2.4.5，SpringCloud 版本 2020.0.5，SpringCloud Alibaba 版本 2021.1
    - CommonAPI：通用 API
    - ConsumerOrder8000LoadBalanced：服务消费者模块，负载均衡使用 LoadBalanced
    - ConsumerOrder8000OpenFegin：服务消费者模块，负载均衡使用 OpenFegin
