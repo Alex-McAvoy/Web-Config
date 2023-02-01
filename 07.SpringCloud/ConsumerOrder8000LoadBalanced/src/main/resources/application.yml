@@ -1,0 +1,28 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: order-service-loadbalanced
+
+eureka:
+  instance:
+    # 自定义Eureka客户端服务名称
+    instance-id: Order-Service-LoadBalanced8000
+    # 访问路径显示 ip
+    prefer-ip-address: true
+  # Eureka 服务注册
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# 对于注册进Eureka的服务，使用SpringBoot的健康监控以自定义info信息
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.eurekaName: ${eureka.instance.instance-id}
+  module.port: ${server.port}
+  module.description: "消费者-订单模块，负载均衡采用LoadBalanced"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

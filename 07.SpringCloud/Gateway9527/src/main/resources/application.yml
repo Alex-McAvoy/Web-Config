@@ -1,0 +1,61 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由，以便用微服务名进行路由
+          enabled: true
+      # 一个请求满足多个断言时，只会被首个匹配的进行路由转发
+      routes:
+        - id: payment_service_1 # 路由id，无固定规则但要求唯一
+          # 匹配后提供服务的路由地址
+          #uri: http://localhost:8001
+          # 使用微服务名进行路由
+          uri: lb://payment-service-eureka
+          # 断言，满足所有匹配规则的进行路由
+          predicates:
+            # 根据路径进行匹配
+            - Path=/provider/payment/get/**,/provider/payment/add,/provider/payment/discovery
+            # GET或POST请求可以匹配
+            #- Method=GET,POST
+            # 在某个时间点之前可以匹配，ZonedDateTime格式
+            #- Before=2024-01-01T09:11:27.551+08:00[Asia/Shanghai]
+            # 在某个时间点之后可以匹配，ZonedDateTime格式
+            #- After=2023-01-01T09:11:27.551+08:00[Asia/Shanghai]
+            # 在某个时间点之间可以匹配，ZonedDateTime格式
+            #- Between=2023-01-01T09:11:27.551+08:00[Asia/Shanghai],2024-01-01T09:11:27.551+08:00[Asia/Shanghai]
+        - id: order_service_loadbalanced
+          uri: lb://order-service-loadbalanced
+          predicates:
+            - Path=/consumer/payment/get/**,/consumer/payment/add,/consumer/payment/discovery
+        - id: order_service_openfegin
+          uri: lb://order-service-openfegin
+          predicates:
+            - Path=/consumer/payment/get/**,/consumer/payment/add,/consumer/payment/discovery
+
+eureka:
+  instance:
+    # 自定义Eureka客户端服务名称
+    instance-id: Gateway9527
+    # 访问路径显示 ip
+    prefer-ip-address: true
+  # Eureka 服务注册
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# 对于注册进Eureka的服务，使用SpringBoot的健康监控以自定义info信息
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.eurekaName: ${eureka.instance.instance-id}
+  module.port: ${server.port}
+  module.description: "API网关模块Gateway"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
