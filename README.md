@@ -35,7 +35,16 @@
    5. Mybatis Plus：Spring Boot 整合 Druid 数据源与 MyBatis Plus
    6. Task：Spring Boot 的计划任务，包括异步任务、定时任务、邮件任务
    7. Monitor：Spring Boot 日志管理、监控审计的使用
-7. 中间件
+7. SpringCloud：学习使用 SpringCloud，SpringBoot 版本 2.4.5，SpringCloud 版本2020.0.5，SpringCloud Alibaba 版本 2021.1
+   - CommonAPI：通用 API
+   - ConsumerOrder8000LoadBalanced：服务消费者模块，负载均衡使用 LoadBalanced
+   - ConsumerOrder8000OpenFegin：服务消费者模块，负载均衡使用 OpenFegin
+   - Eureka7001：Eureka 服务注册中心
+   - Gateway9527：Gateway 网关
+   - ProviderPayment8001Eureka：服务生产者模块，服务注册中心采用 Eureka
+   - ProviderPayment8002Eureka：服务生产者模块，服务注册中心采用 Eureka
+   - ProviderPayment8003Eureka：服务生产者模块，服务注册中心采用 Eureka
+8. 中间件
    1. Redis
       1. Basic：Redis 的基本使用，包括：Redis 连接、常用 API、事务控制、主从复制、连接池
       2. Spring Boot：Spring Boot 整合 Redis，包括：运行结果缓存、缓存清除、缓存更新
