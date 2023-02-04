@@ -1,0 +1,46 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    # 微服务名称
+    name: message-consumer-rabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+  cloud:
+    stream:
+      # 消息队列的整合服务处理
+      bindings:
+        # 要使用的Stream中的output/input通道名称：通道名-out/in-数字
+        send-in-0:
+          # 要使用的Exchange名称
+          destination: messageProviderExchange
+          # 设置消息类型，json：application/json，文本：text/plain
+          content-type: application/json
+          # 配置分组，实现消息轮发与持久化，避免重复消费与消息丢失
+          group: sendMessage
+
+eureka:
+  instance:
+    # 自定义Eureka客户端服务名称
+    instance-id: Message-Consumer-RabbitMQ8101
+    # 访问路径显示 ip
+    prefer-ip-address: true
+  # Eureka 服务注册
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# 对于注册进Eureka的服务，使用SpringBoot的健康监控以自定义info信息
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.eurekaName: ${eureka.instance.instance-id}
+  module.port: ${server.port}
+  module.description: "Stream消息驱动消费者模块，消息队列采用RabbitMQ"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
