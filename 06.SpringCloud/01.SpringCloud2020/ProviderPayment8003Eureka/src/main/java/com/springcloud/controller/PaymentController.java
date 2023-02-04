@@ -1,6 +1,6 @@
 package com.springcloud.controller;
 
-import com.springcloud.entity.CommonResult;
+import com.springcloud.constant.CommonResult;
 import com.springcloud.entity.Payment;
 import com.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;

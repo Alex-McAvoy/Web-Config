@@ -26,7 +26,7 @@ mybatis-plus:
 eureka:
   instance:
     # 自定义Eureka客户端服务名称
-    instance-id: Payment-Service8002
+    instance-id: Payment-Service-Eureka8002
     # 访问路径显示 ip
     prefer-ip-address: true
   # Eureka 服务注册

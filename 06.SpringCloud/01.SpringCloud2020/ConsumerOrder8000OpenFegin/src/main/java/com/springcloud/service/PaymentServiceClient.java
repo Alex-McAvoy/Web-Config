@@ -1,6 +1,6 @@
 package com.springcloud.service;
 
-import com.springcloud.entity.CommonResult;
+import com.springcloud.constant.CommonResult;
 import com.springcloud.entity.Payment;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;

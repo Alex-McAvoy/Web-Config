@@ -19,12 +19,16 @@
         <module>ProviderPayment8003Eureka</module>
         <module>Eureka7001</module>
         <module>Gateway9527</module>
+        <module>ProviderStream8100RabbitMQ</module>
+        <module>ConsumerStream8101RabbitMQ</module>
+        <module>ConsumerStream8102RabbitMQ</module>
+        <module>ConsumerStream8103RabbitMQ</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot-version>2.4.5</spring.boot-version>
-        <spring.cloud-version>2020.0.5</spring.cloud-version>
+        <spring.boot-version>2.4.6</spring.boot-version>
+        <spring.cloud-version>2020.0.3</spring.cloud-version>
         <spring.cloud.alibaba-version>2021.1</spring.cloud.alibaba-version>
         <mysql.version>8.0.21</mysql.version>
         <druid.version>1.2.12</druid.version>
