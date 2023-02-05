@@ -45,18 +45,25 @@
 
 1. SpringCloud2020：SpringBoot 版本 2.4.6，SpringCloud 版本 2020.0.3
    - CommonAPI：通用 API
-   - ConsumerOrder8000LoadBalanced：服务消费者模块，负载均衡使用 LoadBalanced
+   - ConsumerOrder8000LoadBalanced：服务消费者模块，服务注册中心采用 Eureka，负载均衡使用 LoadBalanced
    - ConsumerOrder8000OpenFegin：服务消费者模块，负载均衡使用 OpenFegin
-   - ConsumerStream8101RabbitMQ：消息消费者模块，消息队列采用 RabbitMQ
-   - ConsumerStream8101RabbitMQ：消息消费者模块，消息队列采用 RabbitMQ
-   - ConsumerStream8101RabbitMQ：消息消费者模块，消息队列采用 RabbitMQ
+   - ConsumerStream8101RabbitMQ：SpringCloud Stream 消息消费者模块，消息队列采用 RabbitMQ
+   - ConsumerStream8101RabbitMQ：SpringCloud Stream 消息消费者模块，消息队列采用 RabbitMQ
+   - ConsumerStream8101RabbitMQ：SpringCloud Stream 消息消费者模块，消息队列采用 RabbitMQ
    - Eureka7001：Eureka 服务注册中心
-   - Gateway9527：Gateway 网关
-   - ProviderPayment8001Eureka：服务生产者模块，服务注册中心采用 Eureka
-   - ProviderPayment8002Eureka：服务生产者模块，服务注册中心采用 Eureka
-   - ProviderPayment8003Eureka：服务生产者模块，服务注册中心采用 Eureka
-   - ProviderStream8100RabbitMQ：消息提供者模块，消息队列采用 RabbitMQ
-2. SpringCloud Alibaba：学习使用 SpringCloud Alibaba，SpringBoot 版本 2.4.6，SpringCloud 版本 2020.0.3，SpringCloud Alibaba 版本 2021.1
+   - Gateway9527：SpringCloud Gateway 网关模块
+   - ProviderPayment8001Eureka：服务生产者模块
+   - ProviderPayment8002Eureka：服务生产者模块
+   - ProviderPayment8003Eureka：服务生产者模块
+   - ProviderStream8100RabbitMQ：SpringCloud Stream 消息提供者模块，消息队列采用 RabbitMQ
+2. SpringCloudAlibaba：学习使用 SpringCloud Alibaba，SpringBoot 版本 2.4.6，SpringCloud 版本 2020.0.3，SpringCloud Alibaba 版本 2021.1
+   - CommonAPI：通用 API
+   - ConfigCenterNacos3377：Nacos 配置中心
+   - ConsumerOrder8000Nacos：服务消费者模块
+   - ProviderPayment8001Nacos：服务生产者模块
+   - ProviderPayment8002Nacos：服务生产者模块
+   - ProviderPayment8003Nacos：服务生产者模块
+   - Sentinel8401：Sentinel 流量治理模块
 
 ## 7.中间件
 
