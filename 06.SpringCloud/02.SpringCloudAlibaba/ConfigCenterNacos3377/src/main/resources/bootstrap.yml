@@ -1,0 +1,28 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: config-client-nacos
+  cloud:
+    # nacos配置
+    nacos:
+      # 服务注册
+      discovery:
+        server-addr: localhost:8848
+      # 配置中心
+      config:
+        server-addr: localhost:8848
+        # 配置内容的数据格式，目前仅支持yaml与properties类型
+        file-extension: yaml
+        # 配置命名空间id以切换不同的命名空间
+#        namespace: xxx-xxx-xxx
+        # 配置分组
+#        group: DEV_GROUP
+
+# Nacos配置中心的配置文件管理采用 Namespace-Group-DataId 方式
+# 默认为public-DEFAULT_GROUP-DataId
+# 根据需要，可设置不同的namespace与group，以实现命名空间配置与分组配置
+# 配置文件名格式为: ${prefix}-${spring.profile.active}.${file-extension}
+# prefix 默认为 spring.application.name，可通过 spring.cloud.nacos.config.prefix 配置
+# spring.profile.active在application.yml中进行切换，根据不同的active可读取不同的配置文件

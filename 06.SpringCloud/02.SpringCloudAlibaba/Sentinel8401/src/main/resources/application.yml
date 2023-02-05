@@ -1,0 +1,51 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    # 微服务名称
+    name: sentinel-service
+  cloud:
+    # nacos配置
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    # sentinel配置
+    sentinel:
+      # 端口配置
+      transport:
+        # Sentinel Dashboard地址
+        dashboard: localhost:9090
+        port: 8719
+      # 持久化配置
+      datasource:
+        ds1:
+          nacos:
+            server-addr: localhost:8848
+            dataId: ${spring.application.name}-flow-rules
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+      # 日志配置
+      log:
+        dir: I:\Sentinel\logs\record
+
+
+# 暴露出要监控的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+# 对于注册进Nacos的服务，使用SpringBoot的健康监控以自定义info信息
+# localhost:8401/actuator/info
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.port: ${server.port}
+  module.description: "Sentinel流量治理模块"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

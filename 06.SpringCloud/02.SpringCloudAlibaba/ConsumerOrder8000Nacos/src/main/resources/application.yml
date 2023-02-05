@@ -1,0 +1,33 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: order-service-nacos
+  cloud:
+    # nacos配置
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+# 自定义配置，消费者要访问的微服务URL
+service-url:
+  provider-service: http://payment-service-nacos/provider/payment
+
+# 暴露出要监控的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# 对于注册进Nacos的服务，使用SpringBoot的健康监控以自定义info信息
+# localhost:8000/actuator/info
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.port: ${server.port}
+  module.description: "消费者-订单模块，客户端负载均衡采用LoadBalanced"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

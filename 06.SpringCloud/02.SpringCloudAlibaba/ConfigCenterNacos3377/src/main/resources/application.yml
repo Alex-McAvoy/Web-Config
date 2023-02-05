@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    # 启用环境
+    active: dev
+
+
+# 暴露出要监控的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# 对于注册进Nacos的服务，使用SpringBoot的健康监控以自定义info信息
+# localhost:3377/actuator/info
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.port: ${server.port}
+  module.description: "Nacos配置中心模块"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

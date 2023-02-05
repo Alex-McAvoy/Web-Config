@@ -1,0 +1,47 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    # 微服务名称
+    name: payment-service-nacos
+  cloud:
+    # nacos配置
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud03
+    username: root
+    password: 123456
+
+# 暴露出要监控的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+mybatis-plus:
+  # xxxMapper.xml 文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 驼峰映射
+    map-underscore-to-camel-case: true
+    # 二级缓存
+    cache-enabled: true
+    # 打印 SQL 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 对于注册进Nacos的服务，使用SpringBoot的健康监控以自定义info信息
+# localhost:8003/actuator/info
+info:
+  app.name: "SpringCloud"
+  module.serviceName: ${spring.application.name}
+  module.port: ${server.port}
+  module.description: "生产者-支付模块，服务注册采用Nacos"
+  module.author: "Alex_McAvoy"
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
